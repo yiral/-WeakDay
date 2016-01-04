@@ -24,7 +24,7 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *mainNav = main.instantiateInitialViewController;
     mainNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    mainNav.tabBarItem.image = [UIImage imageNamed:@"ft_home_selected_ic.png"];
+    mainNav.tabBarItem.image = [UIImage imageNamed:@"ft_home_normal_ic.png"];
     UIImage *mainImage = [UIImage imageNamed:@"ft_home_selected_ic.png"];
     //tablebar设置选中图片按照原始状态显示
     mainNav.tabBarItem.selectedImage = [mainImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -35,7 +35,7 @@
     UIStoryboard *find = [UIStoryboard storyboardWithName:@"Discover" bundle:nil];
     UINavigationController *disNAV= find.instantiateInitialViewController;
     disNAV.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
-    disNAV.tabBarItem.image = [UIImage imageNamed:@"ft_found_selected_ic.png"];
+    disNAV.tabBarItem.image = [UIImage imageNamed:@"ft_found_normal_ic.png"];
     UIImage *disImage = [UIImage imageNamed:@"ft_found_selected_ic.png"];
     //tablebar设置选中图片按照原始状态显示
     disNAV.tabBarItem.selectedImage = [disImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -44,7 +44,7 @@
     
     UIStoryboard *me = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
     UINavigationController *meNAV = me.instantiateInitialViewController;
-    meNAV.tabBarItem.image = [UIImage imageNamed:@"ft_person_selected_ic.png"];
+    meNAV.tabBarItem.image = [UIImage imageNamed:@"ft_person_normal_ic.png"];
     meNAV.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
     UIImage *meImage = [UIImage imageNamed:@"ft_person_selected_ic.png"];
     //tablebar设置选中图片按照原始状态显示
