@@ -11,9 +11,17 @@
 		7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF570471C3A1C3C004184E8 /* AppDelegate.m */; };
 		7AF5704A1C3A1C3C004184E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF570491C3A1C3C004184E8 /* Assets.xcassets */; };
 		7AF5704D1C3A1C3C004184E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF5704B1C3A1C3C004184E8 /* LaunchScreen.storyboard */; };
+		7AF570911C3A5CDE004184E8 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF570841C3A5CDE004184E8 /* DiscoverViewController.m */; };
+		7AF570921C3A5CDE004184E8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF5708A1C3A5CDE004184E8 /* MainViewController.m */; };
+		7AF570931C3A5CDE004184E8 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF570901C3A5CDE004184E8 /* MineViewController.m */; };
+		7AF570951C3A5D1E004184E8 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF570941C3A5D1E004184E8 /* Discover.storyboard */; };
+		7AF570971C3A5D3F004184E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF570961C3A5D3F004184E8 /* Main.storyboard */; };
+		7AF570991C3A5D8C004184E8 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF570981C3A5D8C004184E8 /* Mine.storyboard */; };
+		8B953F8698230DD898A1E150 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC12700EB4CB82C9575F607 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7AF570401C3A1C3C004184E8 /* 走起WeakDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "走起WeakDay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF570441C3A1C3C004184E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AF570461C3A1C3C004184E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -21,6 +29,17 @@
 		7AF570491C3A1C3C004184E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AF5704C1C3A1C3C004184E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AF5704E1C3A1C3C004184E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AF570831C3A5CDE004184E8 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		7AF570841C3A5CDE004184E8 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		7AF570891C3A5CDE004184E8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		7AF5708A1C3A5CDE004184E8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		7AF5708F1C3A5CDE004184E8 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		7AF570901C3A5CDE004184E8 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		7AF570941C3A5D1E004184E8 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		7AF570961C3A5D3F004184E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7AF570981C3A5D8C004184E8 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
+		DAC12700EB4CB82C9575F607 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE48BF7BD561909F39DC4BF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B953F8698230DD898A1E150 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C50D9706BAF8C8C5B2B4F78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAC12700EB4CB82C9575F607 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7AF570371C3A1C3C004184E8 = {
 			isa = PBXGroup;
 			children = (
 				7AF570421C3A1C3C004184E8 /* 走起WeakDay */,
 				7AF570411C3A1C3C004184E8 /* Products */,
+				EB7714C8D7A4B410A2C4C225 /* Pods */,
+				2C50D9706BAF8C8C5B2B4F78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +83,9 @@
 		7AF570421C3A1C3C004184E8 /* 走起WeakDay */ = {
 			isa = PBXGroup;
 			children = (
+				7AF5707E1C3A5CDE004184E8 /* Classes */,
+				7AF570741C3A5C37004184E8 /* Resource */,
+				7AF570731C3A5C2C004184E8 /* Libarary */,
 				7AF570461C3A1C3C004184E8 /* AppDelegate.h */,
 				7AF570471C3A1C3C004184E8 /* AppDelegate.m */,
 				7AF570491C3A1C3C004184E8 /* Assets.xcassets */,
@@ -71,6 +104,141 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7AF570731C3A5C2C004184E8 /* Libarary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libarary;
+			sourceTree = "<group>";
+		};
+		7AF570741C3A5C37004184E8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		7AF5707E1C3A5CDE004184E8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7AF5707F1C3A5CDE004184E8 /* Discover */,
+				7AF570851C3A5CDE004184E8 /* Main */,
+				7AF5708B1C3A5CDE004184E8 /* Mine */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7AF5707F1C3A5CDE004184E8 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570801C3A5CDE004184E8 /* cell */,
+				7AF570811C3A5CDE004184E8 /* Model */,
+				7AF570821C3A5CDE004184E8 /* ViewController */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		7AF570801C3A5CDE004184E8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570941C3A5D1E004184E8 /* Discover.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AF570811C3A5CDE004184E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AF570821C3A5CDE004184E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570831C3A5CDE004184E8 /* DiscoverViewController.h */,
+				7AF570841C3A5CDE004184E8 /* DiscoverViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7AF570851C3A5CDE004184E8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570861C3A5CDE004184E8 /* cell */,
+				7AF570871C3A5CDE004184E8 /* Model */,
+				7AF570881C3A5CDE004184E8 /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7AF570861C3A5CDE004184E8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570961C3A5D3F004184E8 /* Main.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AF570871C3A5CDE004184E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AF570881C3A5CDE004184E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570891C3A5CDE004184E8 /* MainViewController.h */,
+				7AF5708A1C3A5CDE004184E8 /* MainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7AF5708B1C3A5CDE004184E8 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				7AF5708C1C3A5CDE004184E8 /* cell */,
+				7AF5708D1C3A5CDE004184E8 /* Model */,
+				7AF5708E1C3A5CDE004184E8 /* ViewController */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		7AF5708C1C3A5CDE004184E8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				7AF570981C3A5D8C004184E8 /* Mine.storyboard */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		7AF5708D1C3A5CDE004184E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7AF5708E1C3A5CDE004184E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AF5708F1C3A5CDE004184E8 /* MineViewController.h */,
+				7AF570901C3A5CDE004184E8 /* MineViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EB7714C8D7A4B410A2C4C225 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */,
+				FE48BF7BD561909F39DC4BF6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +246,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7AF570511C3A1C3C004184E8 /* Build configuration list for PBXNativeTarget "走起WeakDay" */;
 			buildPhases = (
+				80A9320504EDFF84E8C27F3C /* Check Pods Manifest.lock */,
 				7AF5703C1C3A1C3C004184E8 /* Sources */,
 				7AF5703D1C3A1C3C004184E8 /* Frameworks */,
 				7AF5703E1C3A1C3C004184E8 /* Resources */,
+				3327FB90B110C51906B7AD7D /* Embed Pods Frameworks */,
+				0EBD287BC981B13977F02FA0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,10 +301,61 @@
 			files = (
 				7AF5704A1C3A1C3C004184E8 /* Assets.xcassets in Resources */,
 				7AF5704D1C3A1C3C004184E8 /* LaunchScreen.storyboard in Resources */,
+				7AF570991C3A5D8C004184E8 /* Mine.storyboard in Resources */,
+				7AF570951C3A5D1E004184E8 /* Discover.storyboard in Resources */,
+				7AF570971C3A5D3F004184E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EBD287BC981B13977F02FA0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3327FB90B110C51906B7AD7D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80A9320504EDFF84E8C27F3C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7AF5703C1C3A1C3C004184E8 /* Sources */ = {
@@ -141,7 +363,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */,
+				7AF570911C3A5CDE004184E8 /* DiscoverViewController.m in Sources */,
+				7AF570931C3A5CDE004184E8 /* MineViewController.m in Sources */,
 				7AF570451C3A1C3C004184E8 /* main.m in Sources */,
+				7AF570921C3A5CDE004184E8 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +466,7 @@
 		};
 		7AF570521C3A1C3C004184E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "走起WeakDay/Info.plist";
@@ -252,6 +478,7 @@
 		};
 		7AF570531C3A1C3C004184E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE48BF7BD561909F39DC4BF6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "走起WeakDay/Info.plist";
@@ -280,6 +507,7 @@
 				7AF570531C3A1C3C004184E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

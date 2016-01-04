@@ -17,6 +17,52 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    
+    UITabBarController *tabbarC = [[UITabBarController alloc] init];
+    //主页
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *mainNav = main.instantiateInitialViewController;
+    mainNav.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    mainNav.tabBarItem.image = [UIImage imageNamed:@"ft_home_selected_ic.png"];
+    UIImage *mainImage = [UIImage imageNamed:@"ft_home_selected_ic.png"];
+    //tablebar设置选中图片按照原始状态显示
+    mainNav.tabBarItem.selectedImage = [mainImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+    
+    
+    UIStoryboard *find = [UIStoryboard storyboardWithName:@"Discover" bundle:nil];
+    UINavigationController *disNAV= find.instantiateInitialViewController;
+    disNAV.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    disNAV.tabBarItem.image = [UIImage imageNamed:@"ft_found_selected_ic.png"];
+    UIImage *disImage = [UIImage imageNamed:@"ft_found_selected_ic.png"];
+    //tablebar设置选中图片按照原始状态显示
+    disNAV.tabBarItem.selectedImage = [disImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    
+    
+    UIStoryboard *me = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    UINavigationController *meNAV = me.instantiateInitialViewController;
+    meNAV.tabBarItem.image = [UIImage imageNamed:@"ft_person_selected_ic.png"];
+    meNAV.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    UIImage *meImage = [UIImage imageNamed:@"ft_person_selected_ic.png"];
+    //tablebar设置选中图片按照原始状态显示
+    meNAV.tabBarItem.selectedImage = [meImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+
+    
+    
+    
+    
+    tabbarC.viewControllers = @[mainNav, disNAV, meNAV];
+    tabbarC.tabBar.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    
+    
+    self.window.rootViewController = tabbarC;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
