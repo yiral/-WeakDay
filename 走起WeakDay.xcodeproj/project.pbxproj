@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB61C3B6B090083C73C /* btn_search.png */; };
+		7AF14AB91C3B9D670083C73C /* city in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB81C3B9D670083C73C /* city */; };
+		7AF14ABC1C3BA0710083C73C /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14ABB1C3BA0710083C73C /* MainModel.m */; };
 		7AF570451C3A1C3C004184E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF570441C3A1C3C004184E8 /* main.m */; };
 		7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF570471C3A1C3C004184E8 /* AppDelegate.m */; };
 		7AF5704A1C3A1C3C004184E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF570491C3A1C3C004184E8 /* Assets.xcassets */; };
@@ -24,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7AF14AB61C3B6B090083C73C /* btn_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_search.png; sourceTree = "<group>"; };
+		7AF14AB81C3B9D670083C73C /* city */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city; sourceTree = "<group>"; };
+		7AF14ABA1C3BA0710083C73C /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
+		7AF14ABB1C3BA0710083C73C /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
 		7AF570401C3A1C3C004184E8 /* 走起WeakDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "走起WeakDay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF570441C3A1C3C004184E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AF570461C3A1C3C004184E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,8 +47,8 @@
 		7AF570941C3A5D1E004184E8 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		7AF570961C3A5D3F004184E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7AF570981C3A5D8C004184E8 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
-		7AF570A61C3A7676004184E8 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
-		7AF570A71C3A7676004184E8 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
+		7AF570A61C3A7676004184E8 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewCell.h; path = ../ViewController/MainTableViewCell.h; sourceTree = "<group>"; };
+		7AF570A71C3A7676004184E8 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewCell.m; path = ../ViewController/MainTableViewCell.m; sourceTree = "<group>"; };
 		7AF570A81C3A7676004184E8 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		DAC12700EB4CB82C9575F607 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE48BF7BD561909F39DC4BF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				7AF570961C3A5D3F004184E8 /* Main.storyboard */,
+				7AF14AB61C3B6B090083C73C /* btn_search.png */,
+				7AF570A61C3A7676004184E8 /* MainTableViewCell.h */,
+				7AF570A71C3A7676004184E8 /* MainTableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -188,6 +198,9 @@
 		7AF570871C3A5CDE004184E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7AF14AB81C3B9D670083C73C /* city */,
+				7AF14ABA1C3BA0710083C73C /* MainModel.h */,
+				7AF14ABB1C3BA0710083C73C /* MainModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,8 +210,6 @@
 			children = (
 				7AF570891C3A5CDE004184E8 /* MainViewController.h */,
 				7AF5708A1C3A5CDE004184E8 /* MainViewController.m */,
-				7AF570A61C3A7676004184E8 /* MainTableViewCell.h */,
-				7AF570A71C3A7676004184E8 /* MainTableViewCell.m */,
 				7AF570A81C3A7676004184E8 /* MainTableViewCell.xib */,
 			);
 			path = ViewController;
@@ -310,7 +321,9 @@
 				7AF570AA1C3A7676004184E8 /* MainTableViewCell.xib in Resources */,
 				7AF5704A1C3A1C3C004184E8 /* Assets.xcassets in Resources */,
 				7AF5704D1C3A1C3C004184E8 /* LaunchScreen.storyboard in Resources */,
+				7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */,
 				7AF570991C3A5D8C004184E8 /* Mine.storyboard in Resources */,
+				7AF14AB91C3B9D670083C73C /* city in Resources */,
 				7AF570951C3A5D1E004184E8 /* Discover.storyboard in Resources */,
 				7AF570971C3A5D3F004184E8 /* Main.storyboard in Resources */,
 			);
@@ -377,6 +390,7 @@
 				7AF570931C3A5CDE004184E8 /* MineViewController.m in Sources */,
 				7AF570451C3A1C3C004184E8 /* main.m in Sources */,
 				7AF570921C3A5CDE004184E8 /* MainViewController.m in Sources */,
+				7AF14ABC1C3BA0710083C73C /* MainModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
