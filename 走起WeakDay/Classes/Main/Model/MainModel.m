@@ -29,7 +29,8 @@
         }
 
         self.image_big = dic[@"image_big"];
-        self.tittle = dic[@"title"];
+        self.title = dic[@"title"];
+
         self.activityID = dic[@"id"];
         
     }

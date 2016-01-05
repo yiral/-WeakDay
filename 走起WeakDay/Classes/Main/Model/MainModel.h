@@ -24,7 +24,7 @@ typedef enum {
 //首页大图
 @property(nonatomic, copy) NSString *image_big;
 //标题
-@property(nonatomic, copy) NSString *tittle;
+@property(nonatomic, copy) NSString *title;
 //价格；
 @property(nonatomic, copy) NSString *price;
 //经纬度；

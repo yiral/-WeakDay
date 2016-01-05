@@ -10,6 +10,7 @@
 #import "MainTableViewCell.h"
 #import <AFHTTPSessionManager.h>
 #import "MainModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MainViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 //全部数据
@@ -18,6 +19,7 @@
 @property(nonatomic, strong) NSMutableArray *activityArrtay;
 //推荐专题数据
 @property(nonatomic, strong) NSMutableArray *themeArray;
+@property(nonatomic, strong) NSMutableArray *adArray;
 @end
 
 @implementation MainViewController
@@ -78,13 +80,11 @@
 }
 
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if (section == 0) {
-//        return 342;
-//    }
-//    return 0;
-//    
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 26;
+    
+}
 //自定义分区区头；
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 343)];
@@ -93,6 +93,26 @@
 //    
 //    return nil;
 //}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] init];
+    UIImageView *SectionView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/2-160, 5,320 , 16)];
+
+    if (section == 0) {
+        
+        SectionView.image = [UIImage imageNamed:@"home_recommed_ac"];
+
+    }else{
+        
+        SectionView.image = [UIImage imageNamed:@"home_recommd_rc"];
+
+
+    }
+    [view addSubview:SectionView];
+    
+    
+    return view;
+}
 
 //选择城市；
 -(void)selectorCityAction:(UIBarButtonItem *)bar{
@@ -106,8 +126,54 @@
 
 -(void)configTableViewHeadView{
     UIView *tableViewHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width , 343)];
-    tableViewHeadView.backgroundColor = [UIColor cyanColor];
+
     self.tableView.tableHeaderView = tableViewHeadView;
+    
+    UIScrollView *carousView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186)];
+    carousView.contentSize = CGSizeMake(self.adArray.count * [ UIScreen mainScreen ].bounds.size.width, 186);
+    for (int i = 0; i < self.adArray.count; i ++) {
+        UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*i, 0, [UIScreen mainScreen].bounds.size.width, 186)];
+        [images sd_setImageWithURL:[NSURL URLWithString:self.adArray[i]] placeholderImage:nil];
+        [carousView addSubview:images];
+        
+        
+    }
+    [tableViewHeadView addSubview:carousView];
+    for (int i = 0; i < 5; i ++) {
+        UIButton *buttton1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        buttton1.frame = CGRectMake(i * [UIScreen mainScreen].bounds.size.width/4, 186, [UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/4);
+        NSString *imageStr = [NSString stringWithFormat:@"home_icon_%02d",i+1];
+        [buttton1 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+        [buttton1 addTarget:self action:@selector(mainActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        [tableViewHeadView addSubview:buttton1];
+    }
+    
+    
+    //
+    UIButton *buttton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttton2.frame = CGRectMake(0, 186+[UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
+    NSString *imageStr = [NSString stringWithFormat:@"home_zhuanti"];
+    [buttton2 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+    [buttton2 addTarget:self action:@selector(goodActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [tableViewHeadView addSubview:buttton2];
+    
+    
+    UIButton *buttton3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttton3.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2, 186+[UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
+    NSString *imageStri = [NSString stringWithFormat:@"home_huodong"];
+    [buttton3 setImage:[UIImage imageNamed:imageStri] forState:UIControlStateNormal];
+    [buttton3 addTarget:self action:@selector(mainActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [tableViewHeadView addSubview:buttton3];
+
+
+
+
+}
+-(void)mainActivityButtonAction{
+    
+}
+-(void)goodActivityButtonAction{
+    
 }
 
 -(void)requestModel{
@@ -146,6 +212,12 @@
             [self.tableView reloadData];
             //广告
             NSArray *adDataArray = dic[@"adData"];
+            for (NSDictionary *dic in adDataArray) {
+                
+                [self.adArray addObject:dic[@"url"]];
+            }
+            //重新刷新头部文件；
+            [self configTableViewHeadView];
             NSString *cityName = dic[@"cityname"];
             self.navigationItem.leftBarButtonItem.title = cityName;
         }
@@ -178,6 +250,12 @@
         self.themeArray = [NSMutableArray new];
     }
     return _themeArray;
+}
+-(NSArray *)adArray{
+    if (_adArray == nil) {
+        self.adArray = [NSMutableArray new];
+    }
+    return _adArray;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

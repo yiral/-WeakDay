@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *ActivityImageView;
 //活动名字；
 @property (strong, nonatomic) IBOutlet UILabel *ActivityNameLable;
+
 //活动价格；
 @property (strong, nonatomic) IBOutlet UILabel *ActivityPricelLable;
 //活动距离；
@@ -24,9 +25,12 @@
 
 
 -(void)setMainModel:(MainModel *)mainModel{
+    self.ActivityNameLable.text = mainModel.title;
     [self.ActivityImageView sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];
-    self.ActivityNameLable.text = mainModel.tittle;
     self.ActivityPricelLable.text = mainModel.price;
+    
+//    NSLog(@"%@",self.ActivityNameLable.text);
+
 }
 - (void)awakeFromNib {
     // Initialization code

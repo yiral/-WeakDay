@@ -14,12 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="301416415" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5G-E1-Dp8">
-                        <rect key="frame" x="0.0" y="145" width="375" height="28"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥9989989998" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqg-xx-nCe">
                         <rect key="frame" x="0.0" y="173" width="185" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -33,12 +27,19 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-qf-Hfa">
                         <rect key="frame" x="0.0" y="-5" width="380" height="178"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="312355" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oz4-RT-AzK" userLabel="Lable">
+                        <rect key="frame" x="0.0" y="149" width="375" height="24"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="ActivityDistanceBtn" destination="fe4-Yp-y68" id="G4u-Z6-ygt"/>
                 <outlet property="ActivityImageView" destination="RyZ-qf-Hfa" id="rvP-Wc-oFI"/>
-                <outlet property="ActivityNameLable" destination="O5G-E1-Dp8" id="Y0o-DC-dqy"/>
+                <outlet property="ActivityNameLable" destination="Oz4-RT-AzK" id="77f-bi-ywu"/>
                 <outlet property="ActivityPricelLable" destination="dqg-xx-nCe" id="b4C-Jp-GQ8"/>
             </connections>
             <point key="canvasLocation" x="554.5" y="330.5"/>
