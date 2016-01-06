@@ -22,6 +22,7 @@
             self.count = dic[@"counts"];
             self.startTime = dic[@"startTime"];
             self.endTime = dic[@"endTime"];
+            self.title = dic[@"title"];
 
         }else{
             //如果是推荐专题；
@@ -29,7 +30,7 @@
         }
 
         self.image_big = dic[@"image_big"];
-        self.title = dic[@"title"];
+        
 
         self.activityID = dic[@"id"];
         

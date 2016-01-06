@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A7DD9EB1C3CBC44002E8B7B /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9EA1C3CBC44002E8B7B /* SelectCityViewController.m */; };
+		7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9ED1C3CBDA0002E8B7B /* SearchViewController.m */; };
+		7A7DD9F11C3CBE71002E8B7B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F01C3CBE71002E8B7B /* ActivityViewController.m */; };
+		7A7DD9F41C3CBF53002E8B7B /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F31C3CBF53002E8B7B /* ThemeViewController.m */; };
+		7A7DD9F71C3CBFE9002E8B7B /* ClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F61C3CBFE9002E8B7B /* ClassifyViewController.m */; };
+		7A7DD9FA1C3CC086002E8B7B /* doodActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F91C3CC086002E8B7B /* doodActivityViewController.m */; };
+		7A7DD9FD1C3CC098002E8B7B /* CodeActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9FC1C3CC098002E8B7B /* CodeActivityViewController.m */; };
+		7ABAB10D1C3D207500788211 /* UIViewController+Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */; };
 		7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB61C3B6B090083C73C /* btn_search.png */; };
 		7AF14AB91C3B9D670083C73C /* city in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB81C3B9D670083C73C /* city */; };
 		7AF14ABC1C3BA0710083C73C /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14ABB1C3BA0710083C73C /* MainModel.m */; };
@@ -27,6 +35,24 @@
 
 /* Begin PBXFileReference section */
 		751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7A7DD9E71C3CAE39002E8B7B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		7A7DD9E81C3CB30B002E8B7B /* ZWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDefine.h; sourceTree = "<group>"; };
+		7A7DD9E91C3CBC44002E8B7B /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
+		7A7DD9EA1C3CBC44002E8B7B /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
+		7A7DD9EC1C3CBDA0002E8B7B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		7A7DD9ED1C3CBDA0002E8B7B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		7A7DD9EF1C3CBE71002E8B7B /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		7A7DD9F01C3CBE71002E8B7B /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		7A7DD9F21C3CBF53002E8B7B /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		7A7DD9F31C3CBF53002E8B7B /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		7A7DD9F51C3CBFE9002E8B7B /* ClassifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyViewController.h; sourceTree = "<group>"; };
+		7A7DD9F61C3CBFE9002E8B7B /* ClassifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyViewController.m; sourceTree = "<group>"; };
+		7A7DD9F81C3CC086002E8B7B /* doodActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doodActivityViewController.h; sourceTree = "<group>"; };
+		7A7DD9F91C3CC086002E8B7B /* doodActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = doodActivityViewController.m; sourceTree = "<group>"; };
+		7A7DD9FB1C3CC098002E8B7B /* CodeActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeActivityViewController.h; sourceTree = "<group>"; };
+		7A7DD9FC1C3CC098002E8B7B /* CodeActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeActivityViewController.m; sourceTree = "<group>"; };
+		7ABAB10B1C3D207500788211 /* UIViewController+Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Comment.h"; sourceTree = "<group>"; };
+		7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Comment.m"; sourceTree = "<group>"; };
 		7AF14AB61C3B6B090083C73C /* btn_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_search.png; sourceTree = "<group>"; };
 		7AF14AB81C3B9D670083C73C /* city */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city; sourceTree = "<group>"; };
 		7AF14ABA1C3BA0710083C73C /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
@@ -74,6 +100,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7A7DD9E61C3CAE39002E8B7B /* pch */ = {
+			isa = PBXGroup;
+			children = (
+				7A7DD9E71C3CAE39002E8B7B /* Prefix.pch */,
+				7A7DD9E81C3CB30B002E8B7B /* ZWDefine.h */,
+				7ABAB10B1C3D207500788211 /* UIViewController+Comment.h */,
+				7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */,
+			);
+			path = pch;
+			sourceTree = "<group>";
+		};
 		7AF570371C3A1C3C004184E8 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +156,7 @@
 		7AF570731C3A5C2C004184E8 /* Libarary */ = {
 			isa = PBXGroup;
 			children = (
+				7A7DD9E61C3CAE39002E8B7B /* pch */,
 			);
 			path = Libarary;
 			sourceTree = "<group>";
@@ -211,6 +249,20 @@
 				7AF570891C3A5CDE004184E8 /* MainViewController.h */,
 				7AF5708A1C3A5CDE004184E8 /* MainViewController.m */,
 				7AF570A81C3A7676004184E8 /* MainTableViewCell.xib */,
+				7A7DD9E91C3CBC44002E8B7B /* SelectCityViewController.h */,
+				7A7DD9EA1C3CBC44002E8B7B /* SelectCityViewController.m */,
+				7A7DD9EC1C3CBDA0002E8B7B /* SearchViewController.h */,
+				7A7DD9ED1C3CBDA0002E8B7B /* SearchViewController.m */,
+				7A7DD9EF1C3CBE71002E8B7B /* ActivityViewController.h */,
+				7A7DD9F01C3CBE71002E8B7B /* ActivityViewController.m */,
+				7A7DD9F21C3CBF53002E8B7B /* ThemeViewController.h */,
+				7A7DD9F31C3CBF53002E8B7B /* ThemeViewController.m */,
+				7A7DD9F51C3CBFE9002E8B7B /* ClassifyViewController.h */,
+				7A7DD9F61C3CBFE9002E8B7B /* ClassifyViewController.m */,
+				7A7DD9F81C3CC086002E8B7B /* doodActivityViewController.h */,
+				7A7DD9F91C3CC086002E8B7B /* doodActivityViewController.m */,
+				7A7DD9FB1C3CC098002E8B7B /* CodeActivityViewController.h */,
+				7A7DD9FC1C3CC098002E8B7B /* CodeActivityViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -384,13 +436,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7DD9F71C3CBFE9002E8B7B /* ClassifyViewController.m in Sources */,
 				7AF570A91C3A7676004184E8 /* MainTableViewCell.m in Sources */,
 				7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */,
 				7AF570911C3A5CDE004184E8 /* DiscoverViewController.m in Sources */,
+				7A7DD9FD1C3CC098002E8B7B /* CodeActivityViewController.m in Sources */,
 				7AF570931C3A5CDE004184E8 /* MineViewController.m in Sources */,
+				7A7DD9FA1C3CC086002E8B7B /* doodActivityViewController.m in Sources */,
+				7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */,
 				7AF570451C3A1C3C004184E8 /* main.m in Sources */,
+				7A7DD9F41C3CBF53002E8B7B /* ThemeViewController.m in Sources */,
+				7A7DD9EB1C3CBC44002E8B7B /* SelectCityViewController.m in Sources */,
 				7AF570921C3A5CDE004184E8 /* MainViewController.m in Sources */,
+				7ABAB10D1C3D207500788211 /* UIViewController+Comment.m in Sources */,
 				7AF14ABC1C3BA0710083C73C /* MainModel.m in Sources */,
+				7A7DD9F11C3CBE71002E8B7B /* ActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +553,8 @@
 			baseConfigurationReference = 751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/走起WeakDay/Libarary/pch/Prefix.pch";
 				INFOPLIST_FILE = "走起WeakDay/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "text.--WeakDay";
@@ -505,6 +567,8 @@
 			baseConfigurationReference = FE48BF7BD561909F39DC4BF6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/走起WeakDay/Libarary/pch/Prefix.pch";
 				INFOPLIST_FILE = "走起WeakDay/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "text.--WeakDay";

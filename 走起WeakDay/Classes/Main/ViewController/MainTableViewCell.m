@@ -8,6 +8,7 @@
 
 #import "MainTableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MainViewController.h"
 @interface MainTableViewCell ()
 //活动图片；
 @property (strong, nonatomic) IBOutlet UIImageView *ActivityImageView;
@@ -28,8 +29,14 @@
     self.ActivityNameLable.text = mainModel.title;
     [self.ActivityImageView sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];
     self.ActivityPricelLable.text = mainModel.price;
+
+    if ([mainModel.type floatValue] == RecommendTypeActivity) {
+        self.ActivityDistanceBtn.hidden = NO;
+    }else{
+        self.ActivityDistanceBtn.hidden = YES;
+    }
     
-//    NSLog(@"%@",self.ActivityNameLable.text);
+
 
 }
 - (void)awakeFromNib {
