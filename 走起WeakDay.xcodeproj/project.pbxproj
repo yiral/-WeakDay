@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A44FBE61C3D4E9A00A6B687 /* 头文档大点击事件 in Resources */ = {isa = PBXBuildFile; fileRef = 7A44FBE51C3D4E9A00A6B687 /* 头文档大点击事件 */; };
+		7A5BE76D1C3E10F7008CF120 /* ActivityScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BE76C1C3E10F7008CF120 /* ActivityScrollView.m */; };
 		7A7DD9EB1C3CBC44002E8B7B /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9EA1C3CBC44002E8B7B /* SelectCityViewController.m */; };
 		7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9ED1C3CBDA0002E8B7B /* SearchViewController.m */; };
 		7A7DD9F11C3CBE71002E8B7B /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F01C3CBE71002E8B7B /* ActivityViewController.m */; };
@@ -15,6 +17,8 @@
 		7A7DD9FA1C3CC086002E8B7B /* doodActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9F91C3CC086002E8B7B /* doodActivityViewController.m */; };
 		7A7DD9FD1C3CC098002E8B7B /* CodeActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9FC1C3CC098002E8B7B /* CodeActivityViewController.m */; };
 		7ABAB10D1C3D207500788211 /* UIViewController+Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */; };
+		7AE08AD11C3E4C6C000CEA0B /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08AD01C3E4C6C000CEA0B /* HWTools.m */; };
+		7AE08AD41C3E5B10000CEA0B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE08AD31C3E5B0F000CEA0B /* UIView+Extension.m */; };
 		7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB61C3B6B090083C73C /* btn_search.png */; };
 		7AF14AB91C3B9D670083C73C /* city in Resources */ = {isa = PBXBuildFile; fileRef = 7AF14AB81C3B9D670083C73C /* city */; };
 		7AF14ABC1C3BA0710083C73C /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF14ABB1C3BA0710083C73C /* MainModel.m */; };
@@ -35,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		751FE71B45343CF0D79548D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7A44FBE51C3D4E9A00A6B687 /* 头文档大点击事件 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "头文档大点击事件"; sourceTree = "<group>"; };
+		7A5BE76B1C3E10F7008CF120 /* ActivityScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityScrollView.h; sourceTree = "<group>"; };
+		7A5BE76C1C3E10F7008CF120 /* ActivityScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityScrollView.m; sourceTree = "<group>"; };
 		7A7DD9E71C3CAE39002E8B7B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7A7DD9E81C3CB30B002E8B7B /* ZWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDefine.h; sourceTree = "<group>"; };
 		7A7DD9E91C3CBC44002E8B7B /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
@@ -53,6 +60,10 @@
 		7A7DD9FC1C3CC098002E8B7B /* CodeActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeActivityViewController.m; sourceTree = "<group>"; };
 		7ABAB10B1C3D207500788211 /* UIViewController+Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Comment.h"; sourceTree = "<group>"; };
 		7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Comment.m"; sourceTree = "<group>"; };
+		7AE08ACF1C3E4C6C000CEA0B /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTools.h; sourceTree = "<group>"; };
+		7AE08AD01C3E4C6C000CEA0B /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTools.m; sourceTree = "<group>"; };
+		7AE08AD21C3E5B0F000CEA0B /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7AE08AD31C3E5B0F000CEA0B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		7AF14AB61C3B6B090083C73C /* btn_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_search.png; sourceTree = "<group>"; };
 		7AF14AB81C3B9D670083C73C /* city */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = city; sourceTree = "<group>"; };
 		7AF14ABA1C3BA0710083C73C /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
@@ -107,6 +118,10 @@
 				7A7DD9E81C3CB30B002E8B7B /* ZWDefine.h */,
 				7ABAB10B1C3D207500788211 /* UIViewController+Comment.h */,
 				7ABAB10C1C3D207500788211 /* UIViewController+Comment.m */,
+				7AE08ACF1C3E4C6C000CEA0B /* HWTools.h */,
+				7AE08AD01C3E4C6C000CEA0B /* HWTools.m */,
+				7AE08AD21C3E5B0F000CEA0B /* UIView+Extension.h */,
+				7AE08AD31C3E5B0F000CEA0B /* UIView+Extension.m */,
 			);
 			path = pch;
 			sourceTree = "<group>";
@@ -226,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				7AF570961C3A5D3F004184E8 /* Main.storyboard */,
+				7A5BE76B1C3E10F7008CF120 /* ActivityScrollView.h */,
+				7A5BE76C1C3E10F7008CF120 /* ActivityScrollView.m */,
 				7AF14AB61C3B6B090083C73C /* btn_search.png */,
 				7AF570A61C3A7676004184E8 /* MainTableViewCell.h */,
 				7AF570A71C3A7676004184E8 /* MainTableViewCell.m */,
@@ -236,9 +253,10 @@
 		7AF570871C3A5CDE004184E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7AF14AB81C3B9D670083C73C /* city */,
 				7AF14ABA1C3BA0710083C73C /* MainModel.h */,
 				7AF14ABB1C3BA0710083C73C /* MainModel.m */,
+				7AF14AB81C3B9D670083C73C /* city */,
+				7A44FBE51C3D4E9A00A6B687 /* 头文档大点击事件 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +393,7 @@
 				7AF5704D1C3A1C3C004184E8 /* LaunchScreen.storyboard in Resources */,
 				7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */,
 				7AF570991C3A5D8C004184E8 /* Mine.storyboard in Resources */,
+				7A44FBE61C3D4E9A00A6B687 /* 头文档大点击事件 in Resources */,
 				7AF14AB91C3B9D670083C73C /* city in Resources */,
 				7AF570951C3A5D1E004184E8 /* Discover.storyboard in Resources */,
 				7AF570971C3A5D3F004184E8 /* Main.storyboard in Resources */,
@@ -436,12 +455,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE08AD41C3E5B10000CEA0B /* UIView+Extension.m in Sources */,
+				7AE08AD11C3E4C6C000CEA0B /* HWTools.m in Sources */,
 				7A7DD9F71C3CBFE9002E8B7B /* ClassifyViewController.m in Sources */,
 				7AF570A91C3A7676004184E8 /* MainTableViewCell.m in Sources */,
 				7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */,
 				7AF570911C3A5CDE004184E8 /* DiscoverViewController.m in Sources */,
 				7A7DD9FD1C3CC098002E8B7B /* CodeActivityViewController.m in Sources */,
 				7AF570931C3A5CDE004184E8 /* MineViewController.m in Sources */,
+				7A5BE76D1C3E10F7008CF120 /* ActivityScrollView.m in Sources */,
 				7A7DD9FA1C3CC086002E8B7B /* doodActivityViewController.m in Sources */,
 				7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */,
 				7AF570451C3A1C3C004184E8 /* main.m in Sources */,

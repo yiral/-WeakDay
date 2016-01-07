@@ -7,10 +7,13 @@
 //
 
 #import "MainViewController.h"
+//头文件
 #import "MainTableViewCell.h"
+//网络请求第三方插件；
 #import <AFHTTPSessionManager.h>
 #import "MainModel.h"
 #import "SelectCityViewController.h"
+//照片插件；
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SearchViewController.h"
 #import "ActivityViewController.h"
@@ -27,14 +30,17 @@
 @property(nonatomic, strong) NSMutableArray *activityArrtay;
 //推荐专题数据
 @property(nonatomic, strong) NSMutableArray *themeArray;
+//全部数据
 @property(nonatomic, strong) NSMutableArray *adArray;
+//轮播图的加载
 @property(nonatomic, retain) UIScrollView *carouseView;
+//圆点显示；
 @property(nonatomic, strong) UIPageControl *pageControl;
 //用于图片滚动播放；
 @property(nonatomic, strong) NSTimer *timer;
-
+//热门专题点击按钮
 @property(nonatomic, strong) UIButton *button2;
-
+//精选活动点击按钮；
 @property(nonatomic, strong) UIButton *button3;
 
 @end
@@ -44,13 +50,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:96.0/255.0f green:185.0/255.0f blue:191.0/255.0f alpha:1.0];
-
+    //首页北京的点击按钮；
     UIBarButtonItem *leftBar = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(selectorCityAction:)];
     self.navigationItem.leftBarButtonItem = leftBar;
     leftBar.tintColor = [UIColor whiteColor];
 
-    //right;
-//    UIBarButtonItem *right = [[UIBarButtonItem alloc] ]
+    //搜索图片的点击按钮
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     rightBtn.frame = CGRectMake(0, 0, 14, 14);
     [rightBtn setImage:[UIImage imageNamed:@"btn_search.png"] forState:UIControlStateNormal];
@@ -93,7 +98,12 @@
 #pragma mark ----------delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 203;
+    if (indexPath.section == 0) {
+        return 203;
+    }else{
+        return 186;
+    }
+    return 0;
 }
 
 
@@ -102,14 +112,7 @@
     return 26;
     
 }
-//自定义分区区头；
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 343)];
-//    view.backgroundColor = [UIColor cyanColor];
-//    self.tableView.tableHeaderView = view;
-//    
-//    return nil;
-//}
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
@@ -134,7 +137,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
-        ActivityViewController *ACTIVITYvc = [[ActivityViewController alloc] init];
+        UIStoryboard *mainStory = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+         ActivityViewController *ACTIVITYvc = [mainStory instantiateViewControllerWithIdentifier:@"ActivityDetailVC"];
+        MainModel *mainmodel = self.listArray[indexPath.section][indexPath.row];
+        ACTIVITYvc.ActivityID = mainmodel.activityID;
+        
         [self.navigationController pushViewController:ACTIVITYvc animated:YES];
     }else{
         ThemeViewController *theme = [[ThemeViewController alloc] init];
@@ -148,10 +155,9 @@
 -(void)selectorCityAction:(UIBarButtonItem *)bar{
     SelectCityViewController *selects = [[SelectCityViewController alloc]init];
     [self.navigationController presentViewController:selects animated:YES completion:nil];
-    
 }
 
-//
+//搜索
 -(void)selectorText{
     SearchViewController *search = [[SearchViewController alloc] init];
     [self.navigationController pushViewController:search animated:YES];
@@ -174,9 +180,9 @@
     self.carouseView.delegate = self;
     [tableViewHeadView addSubview:self.carouseView];
     self.pageControl.numberOfPages = self.adArray.count;
-    
-    
     [tableViewHeadView addSubview:self.pageControl];
+    
+    
     for (int i = 0; i < self.adArray.count; i ++) {
         UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width*i, 0, [UIScreen mainScreen].bounds.size.width, 186)];
         
@@ -252,7 +258,7 @@
                 [self.activityArrtay addObject:model];
       
             }
-                      [self.listArray addObject:self.activityArrtay];
+                [self.listArray addObject:self.activityArrtay];
             //推荐专题
             NSArray *rcDataArray = dic[@"rcData"];
             for (NSDictionary *dict in rcDataArray) {
@@ -289,7 +295,8 @@
 -(void)touchAdvertisment:(UIButton *)adButton{
     NSString *type = self.adArray[adButton.tag - 100][@"type"];
     if ([type integerValue] == 1) {
-        ActivityViewController *activity = [[ActivityViewController alloc] init];
+        UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ActivityViewController *activity = [MainStoryBoard instantiateViewControllerWithIdentifier:@"ActivityDetailVC"];
         activity.ActivityID = self.adArray[adButton.tag - 100][@"id"];
         
         [self.navigationController pushViewController:activity animated:YES];
@@ -306,8 +313,8 @@
     if (_timer != nil) {
         return;
     }
-    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(rollAnimation) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(rollAnimation) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
 }
 //每两秒执行一次，图片实现轮播；
@@ -388,28 +395,16 @@
 -(UIButton *)button2{
     
     if (_button2 == nil) {
-        
-    
     self.button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button2.frame = CGRectMake(0, 186+[UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
     NSString *imageStr = [NSString stringWithFormat:@"home_zhuanti"];
     [self.button2 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
     [self.button2 addTarget:self action:@selector(goodActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-}
+    }
     return _button2;
-
-
-
-
 }
 -(UIButton *)button3{
-    if (_button3) {
-        
-    
-    
+    if (_button3 == nil) {
     self.button3 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button3.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2, 186+kScreenWidth/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
     NSString *imageStri = [NSString stringWithFormat:@"home_huodong"];
