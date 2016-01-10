@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D239C4E03917DFD0185200B906EE6C74D110FF68",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6CB463215409B8F9B92D57A811B5EFBFFE8BE632" : 0,
+    "D239C4E03917DFD0185200B906EE6C74D110FF68" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "23FFB3AF-B93A-4D7A-BD5B-A728C38DF80C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6CB463215409B8F9B92D57A811B5EFBFFE8BE632" : "%E8%B5%B0%E8%B5%B7WeakDay\/%E8%B5%B0%E8%B5%B7WeakDay\/PullingRefreshTableView\/",
+    "D239C4E03917DFD0185200B906EE6C74D110FF68" : "%E8%B5%B0%E8%B5%B7WeakDay\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "走起WeakDay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "走起WeakDay.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zhangmangyuan\/PullingRefreshTableView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6CB463215409B8F9B92D57A811B5EFBFFE8BE632"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:yiral\/-WeakDay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D239C4E03917DFD0185200B906EE6C74D110FF68"
+    }
+  ]
+}

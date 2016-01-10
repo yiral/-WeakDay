@@ -32,8 +32,10 @@
 
     if ([mainModel.type floatValue] == RecommendTypeActivity) {
         self.ActivityDistanceBtn.hidden = NO;
+        self.ActivityNameLable.hidden = NO;
     }else{
         self.ActivityDistanceBtn.hidden = YES;
+        self.ActivityNameLable.hidden = YES;
     }
     
 

@@ -1,7 +1,7 @@
 //
 //  ActivityViewController.m
 //  走起WeakDay
-//
+//  活动详情
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 刘海艳. All rights reserved.
 //
@@ -32,6 +32,7 @@
 
     self.title = @"活动详情";
     [self showBackButton];
+    self.tabBarController.tabBar.hidden = YES;
     //去地图页面；
     [self.ActivityDeliaView.mapButton addTarget:self action:@selector(mapButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -39,7 +40,7 @@
     [self.ActivityDeliaView.makeCallButton addTarget:self action:@selector(makeCallButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 
     
-    [self getModelMarkcustum];
+//    [self getModelMarkcustum];
 }
 //打电话
 -(void)makeCallButtonAction:(UIButton *)button{
@@ -81,7 +82,6 @@
             self.ActivityDeliaView.dict = successDic;
         }
         
-//        NSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

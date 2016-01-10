@@ -21,6 +21,8 @@
 #import "ClassifyViewController.h"
 #import "doodActivityViewController.h"
 #import "CodeActivityViewController.h"
+
+
 @interface MainViewController ()<UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -67,7 +69,7 @@
     //注册cell；
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
-    [self requestModel];
+//    [self requestModel];
     [self startTimer];
 
 
@@ -135,16 +137,18 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+     MainModel *mainmodel = self.listArray[indexPath.section][indexPath.row];
     if (indexPath.section == 0) {
         UIStoryboard *mainStory = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
          ActivityViewController *ACTIVITYvc = [mainStory instantiateViewControllerWithIdentifier:@"ActivityDetailVC"];
-        MainModel *mainmodel = self.listArray[indexPath.section][indexPath.row];
+       
         ACTIVITYvc.ActivityID = mainmodel.activityID;
         
         [self.navigationController pushViewController:ACTIVITYvc animated:YES];
     }else{
         ThemeViewController *theme = [[ThemeViewController alloc] init];
+        theme.themeID = mainmodel.activityID;
+        
         [self.navigationController pushViewController:theme animated:YES];
         
     }
@@ -226,6 +230,7 @@
 //精选活动·；
 -(void)goodActivityButtonAction{
     doodActivityViewController *doodActivity = [[doodActivityViewController alloc] init];
+    doodActivity.tabBarController.tabBar.hidden = YES;
     [self.navigationController pushViewController:doodActivity animated:YES];
     
 }
@@ -294,15 +299,18 @@
 //g广告点击方法；
 -(void)touchAdvertisment:(UIButton *)adButton{
     NSString *type = self.adArray[adButton.tag - 100][@"type"];
+//    MainModel *mainmodel = self.listArray[index]
     if ([type integerValue] == 1) {
+        
         UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ActivityViewController *activity = [MainStoryBoard instantiateViewControllerWithIdentifier:@"ActivityDetailVC"];
         activity.ActivityID = self.adArray[adButton.tag - 100][@"id"];
-        
+
         [self.navigationController pushViewController:activity animated:YES];
     }else{
-        CodeActivityViewController *codeVC = [[CodeActivityViewController alloc] init];
-        [self.navigationController pushViewController:codeVC animated:YES];
+        ThemeViewController *themeVC = [[ThemeViewController alloc] init];
+        themeVC.themeID = self.adArray[adButton.tag-100][@"id"];
+        [self.navigationController pushViewController:themeVC animated:YES];
     }
     
     
@@ -320,15 +328,19 @@
 //每两秒执行一次，图片实现轮播；
 -(void)rollAnimation{
     //把page当前页面加1；
-    NSInteger rollPage = (self.pageControl.currentPage + 1)%self.adArray.count;
+    //数组元素个数可能为0，为0时没有意义；
+    /*错误在于：
+     关于EXC_ARITHMETIC (code=EXC_I386_DIV, subcode=0x0))错误
+     m_iTotalTime / m_iTotalFrames中，m_iTotalFrames这个分母为0了。。。
+     网上说这个错误是除0错误，而且神奇的是ios7没问题，android和ios虚拟机却运行时崩溃了*/
+    if (self.adArray.count) {
+        NSInteger rollPage = (self.pageControl.currentPage + 1)%self.adArray.count;
+        self.pageControl.currentPage = rollPage;
+        //计算出scroll应该滚动的x轴坐标；
+        CGFloat  offset = rollPage *kScreenWidth;
+        [self.carouseView setContentOffset:CGPointMake(offset, 0) animated:YES];
 
-
-    self.pageControl.currentPage = rollPage;
-    //计算出scroll应该滚动的x轴坐标；
-    CGFloat  offset = rollPage *kScreenWidth;
-    [self.carouseView setContentOffset:CGPointMake(offset, 0) animated:YES];
-
-    
+    }
 }
 
 
@@ -337,8 +349,13 @@
 //移动完毕开启定时器；
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self rollAnimation];
+    [self removeTimer];
     //停止定时器时置为nil,重启定时器才能保持正常执行；
+//    self.timer = nil;
+}
+
+-(void)removeTimer{
+    [self.timer invalidate];
     self.timer = nil;
 }
 
@@ -374,6 +391,7 @@
 
 
 
+
 #pragma mark--------------懒加载
 //-(UIScrollView *)carouseView{
 //    if (_carouseView == nil) {
@@ -397,7 +415,7 @@
     if (_button2 == nil) {
     self.button2 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button2.frame = CGRectMake(0, 186+[UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
-    NSString *imageStr = [NSString stringWithFormat:@"home_zhuanti"];
+    NSString *imageStr = [NSString stringWithFormat:@"home_huodong"];
     [self.button2 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
     [self.button2 addTarget:self action:@selector(goodActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -407,7 +425,7 @@
     if (_button3 == nil) {
     self.button3 = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button3.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2, 186+kScreenWidth/4, [UIScreen mainScreen].bounds.size.width/2, 343-186-[UIScreen mainScreen].bounds.size.width/4);
-    NSString *imageStri = [NSString stringWithFormat:@"home_huodong"];
+    NSString *imageStri = [NSString stringWithFormat:@"home_zhuanti"];
     [self.button3 setImage:[UIImage imageNamed:imageStri] forState:UIControlStateNormal];
     [self.button3 addTarget:self action:@selector(hotActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
         }
@@ -446,6 +464,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//-(void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    self.tabBarController.tabBar.hidden = YES;
+//}
+
+
+//-(void)viewWillAppear:(BOOL)animated{
+//    
+//}
 /*
 #pragma mark - Navigation
 

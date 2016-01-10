@@ -1,100 +1,88 @@
 //
-//  ActivityScrollView.m
+//  ThemeView.m
 //  走起WeakDay
 //
-//  Created by scjy on 16/1/7.
+//  Created by scjy on 16/1/8.
 //  Copyright © 2016年 刘海艳. All rights reserved.
 //
 
-#import "ActivityScrollView.h"
+#import "ThemeView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "HWTools.h"
-#import "UIView+Extension.h"
-@interface ActivityScrollView ()
+#import "AppDelegate.h"
+@interface ThemeView ()
+@property(nonatomic, strong) UIImageView *headImageView;
+@property(nonatomic, strong) UIScrollView *mainScrollView;
+@end
 
+@interface ThemeView ()
 {
     //保存上一次图片底部的高度；
     CGFloat _PreviousImageBottom;
     //上一张图片的高度；
     CGFloat _PreviousImageHeight;
-
     //最后一个label底部高度
     CGFloat _lastLabelBottom;
 }
-//图片
-@property (strong, nonatomic) IBOutlet UIImageView *headimageView;
-//活动题目
-@property (strong, nonatomic) IBOutlet UILabel *ActitityTitleLable;
-//活动时间
-@property (strong, nonatomic) IBOutlet UILabel *ActivityTimeLable;
-//喜欢的人数
-@property (strong, nonatomic) IBOutlet UILabel *favoriteLable;
-//整个视图的加载
-@property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
-//价格简介
-@property (strong, nonatomic) IBOutlet UILabel *priceLable;
-//地点
-@property (strong, nonatomic) IBOutlet UILabel *activityDressLable;
-//联系电话
-@property (strong, nonatomic) IBOutlet UILabel *activityPhoneLable;
-
-
-
 @end
 
-@implementation ActivityScrollView
+@implementation ThemeView
 
--(void)awakeFromNib{
-    
-    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth, 10000);
+
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self configView];
+    }
+    return self;
 }
--(void)setDict:(NSDictionary *)dict{
-    //活动图片
-    NSArray *urls = dict[@"urls"];
-    [self.headimageView sd_setImageWithURL:[NSURL URLWithString:urls[0]] placeholderImage:nil ];
-    //活动标题；
-    self.ActitityTitleLable.text = dict[@"title"];
-    //多少人收藏
-    self.favoriteLable.text = [NSString stringWithFormat:@"%@人收藏",dict[@"fav"]];
-    //活动电话
-    self.activityPhoneLable.text = dict[@"tel"];
-    //活动价格
-    self.priceLable.text = dict[@"pricedesc"];
-    //活动地址；
-    self.activityDressLable.text = dict[@"address"];
+//自定义视图；
+-(void)configView{
     
-    //活动时间段
-    NSString *startTime = [HWTools getDateFromString:dict[@"new_start_date"]];
-    NSString *endTime = [HWTools getDateFromString:dict[@"new_end_date"]];
-    self.ActivityTimeLable.text = [NSString stringWithFormat:@"  正在进行：%@-%@",startTime,endTime];
-    /*
-     
-     self.activityTitleLable.text = dataDic[@"title"];
-     
-     NSString *starTime = [HWtools getDateFromString:dataDic[@"new_start_date"]];
-     NSString *endTime = [HWtools getDateFromString:dataDic[@"new_end_date"]];
-     self.activityTimeLable.text = [NSString stringWithFormat:@"正在进行：%@-%@",starTime,endTime];
-     
-     */
     
-    //活动详情；
-    [self drawContantWithArray:dict[@"content"]];
+    
+    [self.mainScrollView addSubview:self.headImageView];
+    [self addSubview:self.mainScrollView];
+}
+
+
+#pragma mark--------------懒加载
+-(UIScrollView *)mainScrollView{
+    if (_mainScrollView == nil) {
+       self.mainScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+    
+    }
+    return _mainScrollView;
+}
+
+
+-(UIImageView *)headImageView{
+    if (_headImageView == nil) {
+        self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 186)];
+    }
+    return _headImageView;
+    
     
 }
+
+#pragma mark--------------setDic
+-(void)setDic:(NSDictionary *)dic{
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:dic[@"image"]] placeholderImage:nil];
+    [self drawContantWithArray:dic[@"content"]];
+ 
+}
+
 -(void)drawContantWithArray:(NSArray *)contantArray{
-
-
     for (NSDictionary *dic in contantArray) {
-
-        
         //计算文字高度
         CGFloat height = [HWTools getTextHeightWithTest:dic[@"description"] bigestSize:CGSizeMake(kScreenWidth, 1000) textFound:15.0];
         CGFloat y ;
-        if (_PreviousImageBottom >400) {
+        if (_PreviousImageBottom >186) {
             //一开始第一个lable必须是500开始；即如果图片底部的高度没有值，也就是小于500，也就说明是加载第一个lable，那么y值不应该减去500；
             y =  _PreviousImageBottom ;
         }else{
-            y = 400 + _PreviousImageBottom;
+            y = 186 + _PreviousImageBottom;
         }
         //如果标题存在；
         NSString *tittle = dic[@"title"];
@@ -116,7 +104,7 @@
         if (urlsArray == nil) { //当某一个段落中没有图片的时候，上次图片的高度用上次label的底部高度+10
             _PreviousImageBottom = label.bottom +10;
             
-
+            
         }else{
             CGFloat lastImageBotton =0.0;
             for (NSDictionary *urldic in urlsArray) {
@@ -137,24 +125,31 @@
                 CGFloat width = [urldic[@"width"] integerValue];
                 CGFloat imageHeight = [urldic[@"height"] integerValue];
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, imgY, kScreenWidth - 20, (kScreenWidth - 20)/width * imageHeight)];
-//                imageView.backgroundColor = [UIColor redColor];
                 [imageView sd_setImageWithURL:[NSURL URLWithString:urldic[@"url"]] placeholderImage:nil];
                 [self.mainScrollView addSubview:imageView];
                 //每次都保留图片底部的高度；
                 _PreviousImageBottom = imageView.bottom + 5;
-
+                
                 if (urlsArray.count >1) {
                     lastImageBotton = imageView.bottom;
                 }
             }
-
+            
         }
         
     }
     
     self.mainScrollView.contentSize = CGSizeMake(kScreenWidth, _lastLabelBottom +20);
-
+    
 }
 
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 @end

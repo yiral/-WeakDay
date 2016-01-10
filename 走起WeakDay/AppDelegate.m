@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    UITabBarController *tabbarC = [[UITabBarController alloc] init];
+    self.tablebar = [[UITabBarController alloc] init];
     //主页
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *mainNav = main.instantiateInitialViewController;
@@ -55,14 +56,14 @@
     
     
     
-    tabbarC.viewControllers = @[mainNav, disNAV, meNAV];
-    tabbarC.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tablebar.viewControllers = @[mainNav, disNAV, meNAV];
+    self.tablebar.tabBar.backgroundColor = [UIColor whiteColor];
     
     
     
     
     
-    self.window.rootViewController = tabbarC;
+    self.window.rootViewController = self.tablebar;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

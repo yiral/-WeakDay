@@ -18,7 +18,8 @@
 
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.Height
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kApplication [UIApplication sharedApplication].delegate
 
 #ifdef DEBUG
 #	define YiralLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

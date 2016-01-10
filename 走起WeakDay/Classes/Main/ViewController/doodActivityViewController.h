@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GoogActivityModel.h"
 @interface doodActivityViewController : UIViewController
+
+@property(nonatomic, strong) GoogActivityModel *model;
 
 @end
