@@ -8,23 +8,17 @@
 
 #import "goodTableViewCell.h"
 #import "GoogActivityModel.h"
-@interface goodTableViewCell (){
-    
-    IBOutlet UIImageView *headImageView;
-    IBOutlet UILabel *ActiviteDistanceLable;
-    IBOutlet UIImageView *ageImageView;
-    
-    IBOutlet UILabel *ActivityTitLable;
-    
-    IBOutlet UILabel *ActivityPricrLable;
-    IBOutlet UIButton *loveContButton;
-    
-    IBOutlet UILabel *ageLable;
-    
+#import <SDWebImage/UIImageView+WebCache.h>
+@interface goodTableViewCell ()
+@property (strong, nonatomic) IBOutlet UIImageView *goodImageView;
 
-    
-    
-}
+@property (strong, nonatomic) IBOutlet UILabel *goodTittle;
+@property (strong, nonatomic) IBOutlet UILabel *goodPriceLable;
+@property (strong, nonatomic) IBOutlet UILabel *goodAgeLable;
+
+@property (strong, nonatomic) IBOutlet UIImageView *goodImageAge;
+@property (strong, nonatomic) IBOutlet UILabel *goodDistance;
+@property (strong, nonatomic) IBOutlet UIButton *goodFavButton;
 
 @end
 
@@ -38,6 +32,16 @@
 
 
 -(void)setModel:(GoogActivityModel *)model{
+    
+    [self.goodImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
+    
+    self.goodAgeLable.text = model.age;
+    self.goodPriceLable.text = model.price;
+    self.goodTittle.text = model.title;
+    self.goodDistance.text = model.address;
+    
+    [self.goodFavButton setTitle:[NSString stringWithFormat:@"%lu",[model.counts integerValue]] forState:UIControlStateNormal];
+    
     
     
 }

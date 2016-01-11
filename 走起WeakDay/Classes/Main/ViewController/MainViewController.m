@@ -209,7 +209,8 @@
         buttton1.frame = CGRectMake(i * [UIScreen mainScreen].bounds.size.width/4, 186, [UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/4);
         NSString *imageStr = [NSString stringWithFormat:@"home_icon_%02d",i+1];
         [buttton1 setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
-        [buttton1 addTarget:self action:@selector(mainActivityButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        buttton1.tag = 100 +i;
+        [buttton1 addTarget:self action:@selector(mainActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [tableViewHeadView addSubview:buttton1];
     }
     
@@ -222,9 +223,11 @@
 }
 #pragma mark ----------自定义区头button点击方法
 //分类列表
--(void)mainActivityButtonAction{
-    ClassifyViewController *classify = [[ClassifyViewController alloc] init];
-    [self.navigationController pushViewController:classify animated:YES];
+-(void)mainActivityButtonAction:(UIButton *)btn{
+    ClassifyViewController *classifyr = [[ClassifyViewController alloc] init];
+    classifyr.classifyListType = btn.tag;
+    classifyr.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:classifyr animated:YES];
     
 }
 //精选活动·；

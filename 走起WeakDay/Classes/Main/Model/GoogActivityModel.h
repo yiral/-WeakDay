@@ -18,7 +18,7 @@
 @property(nonatomic, copy) NSString *acticityId;
 @property(nonatomic, copy) NSString *address;
 @property(nonatomic, copy) NSString *type;
-
+@property(nonatomic, copy) NSString *modelID;
 
 
 -(instancetype)initWithDictionary:(NSDictionary *)dic;

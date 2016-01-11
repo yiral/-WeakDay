@@ -10,7 +10,7 @@
 #import "PullingRefreshTableView.h"
 #import "goodTableViewCell.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
-
+#import "ActivityViewController.h"
 
 
 @interface doodActivityViewController ()<UITableViewDataSource,UITableViewDelegate,PullingRefreshTableViewDelegate>
@@ -24,6 +24,8 @@
 
 @property(nonatomic, strong) PullingRefreshTableView *tableView;
 @property(nonatomic, strong) NSMutableArray *goodArray;
+
+
 @end
 
 @implementation doodActivityViewController
@@ -35,10 +37,10 @@
     [self showBackButton];
     
    
-//    [self.tableView.tableFooterView = ]
+
     [self.view addSubview:self.tableView];
 
-    //
+    //注册cell；
     [self.tableView registerNib:[UINib nibWithNibName:@"goodTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     //
     [self.tableView launchRefreshing];
@@ -53,15 +55,31 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     goodTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+    GoogActivityModel *model = self.goodArray[indexPath.row];
+    
+    cell.model = model;
+
+    
     return cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.goodArray.count;
 }
 
 #pragma mark delegate
 //点击方法；
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GoogActivityModel *model = self.goodArray[indexPath.row];
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ActivityViewController *Acti = [story instantiateViewControllerWithIdentifier:@"ActivityDetailVC"];
+    //
+    Acti.ActivityID = model.modelID;
+    
+    [self.navigationController pushViewController:Acti animated:nil];
+    
     
 }
 
@@ -76,46 +94,52 @@
     }
     return _tableView;
 }
-
-
--(void)loadData{
-    
-    AFHTTPSessionManager *sessionMangrr = [[AFHTTPSessionManager alloc] init];
-    sessionMangrr.responseSerializer.acceptableContentTypes = [NSSet setWithObject: @"text/html"];
-    [sessionMangrr GET:[NSString stringWithFormat:@"%@&id=%ld",kGoodActivity,_pageController] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        YiralLog(@"%@",downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *dict = responseObject;
-        NSString *status = dict[@"status"];
-        NSInteger code = [dict[@"code"] integerValue];
-        if ([status isEqualToString:dict[@"success"]] && code == 0) {
-            NSDictionary *dictSucce = dict[@"success"];
-//            GoogActivityModel *model = [GoogActivityModel ]
-//            [self.goodArray addObject:_model];
-        }
-        
-        
-        
-//        YiralLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        YiralLog(@"%@",error);
-    }];
-    
-    
-    
-    [self.tableView tableViewDidFinishedLoading];
-    self.tableView.reachedTheEnd = NO;
-    [self.tableView reloadData];
-    
-}
-
 -(NSMutableArray *)goodArray{
     if (_goodArray == nil) {
         self.goodArray = [NSMutableArray new];
     }
     return _goodArray;
 }
+
+-(void)loadData{
+    AFHTTPSessionManager *sessionMangrr = [[AFHTTPSessionManager alloc] init];
+    sessionMangrr.responseSerializer.acceptableContentTypes = [NSSet setWithObject: @"text/html"];
+    [sessionMangrr GET:[NSString stringWithFormat:@"%@&page=%lu",kGoodActivity,_pageController] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        YiralLog(@"%@",downloadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dict = responseObject;
+        NSString *status = dict[@"status"];
+        NSInteger code = [dict[@"code"] integerValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *dictSucce = dict[@"success"];
+            NSArray *acArray = dictSucce[@"acData"];
+            if (self.refreshing) {
+                //下拉刷新的时候需要移除数组中的元素；
+                if (self.goodArray.count > 0) {
+                    [self.goodArray removeAllObjects];
+                }
+            }
+            for (NSDictionary *dic in acArray) {
+                GoogActivityModel *model = [[GoogActivityModel alloc] initWithDictionary:dic];
+                [self.goodArray addObject:model];
+            }
+            
+        }else{
+        
+        }
+
+//        YiralLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        YiralLog(@"%@",error);
+    }];
+    [self.tableView tableViewDidFinishedLoading];
+    self.tableView.reachedTheEnd = NO;
+    [self.tableView reloadData];
+    
+}
+
+
 //手指开始拖动方法；
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.tableView tableViewDidScroll:scrollView];
@@ -130,14 +154,16 @@
 #pragma mark -----------pullingTableViewDidStartRefreshing
 //开始刷新的时候掉用；
 -(void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
-    
+    _pageController = 1;
     self.refreshing = YES;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
     
 }
 
-//上拉刷新开始调用
+//上拉加载开始调用
 -(void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
+    _pageController += 1;
+    self.refreshing = NO;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
     
 }

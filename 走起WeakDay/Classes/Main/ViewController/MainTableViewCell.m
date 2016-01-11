@@ -10,6 +10,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "MainViewController.h"
 @interface MainTableViewCell ()
+
+
 //活动图片；
 @property (strong, nonatomic) IBOutlet UIImageView *ActivityImageView;
 //活动名字；

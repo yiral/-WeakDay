@@ -9,6 +9,14 @@
 //
 #import "UIViewController+Comment.h"
 
+typedef NS_ENUM(NSInteger,classifyListType) {
+    classifyListTypeShowReportoire = 1,//演出剧目
+    classifyListTypeTourisePlace,     //景点场馆；
+    classifyListTypeStudyPUZ,        //学习益智；
+    classifyListTypeFamilyTravel    //亲子驴友
+    
+};
+
 #ifndef ZWDefine_h
 #define ZWDefine_h
 
@@ -21,11 +29,21 @@
 //活动专题
 #define kActivityTheme @"http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&cityid=1&lat=34.61349052974207&lng=112.4139739846577&page=1"
 //竞选活动接口；
-#define kGoodActivity @"http://e.kumi.cn/app/positionlist.php?_s_=e2b71c66789428d5385b06c178a88db2&_t_=1452237051&channelid=appstore&cityid=1&lat=34.61351314785497&lng=112.4140755658942&page=1"
+#define kGoodActivity @"http://e.kumi.cn/app/articlelist.php?_s_=a9d09aa8b7692ebee5c8a123deacf775&_t_=1452236979&channelid=appstore&cityid=1&lat=34.61351314785497&limit=30&lng=112.4140755658942&type=1"
+
+//http://e.kumi.cn/app/positionlist.php?_s_=e2b71c66789428d5385b06c178a88db2&_t_=1452237051&channelid=appstore&cityid=1&lat=34.61351314785497&lng=112.4140755658942&page=1
 //limit=30&
 //热门专题接口；
+#define HotActivity @"http://e.kumi.cn/app/positionlist.php?_s_=e2b71c66789428d5385b06c178a88db2&_t_=1452237051&channelid=appstore&cityid=1&lat=34.61351314785497&limit=30&lng=112.4140755658942"
+
+//分类列表接口
+#define classify @"http://e.kumi.cn/app/v1.3/catelist.php?_s_=78284130ab87a8396ec03073eac9c50a&_t_=1452495156&channelid=appstore&cityid=1&lat=34.61356398594803&limit=30&lng=112.4140434532402"
+
 
 
 //http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&cityid=1&id=821&lat=34.61349052974207&limit=30&lng=112.4139739846577&page=1
+
+
+
 
 #endif /* ZWDefine_h */
