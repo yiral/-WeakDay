@@ -140,15 +140,20 @@
 //                imageView.backgroundColor = [UIColor redColor];
                 [imageView sd_setImageWithURL:[NSURL URLWithString:urldic[@"url"]] placeholderImage:nil];
                 [self.mainScrollView addSubview:imageView];
-                //每次都保留图片底部的高度；
+                //每次都保留图片底部的高度；就是scrolloview的高度；
                 _PreviousImageBottom = imageView.bottom + 5;
 
                 if (urlsArray.count >1) {
                     lastImageBotton = imageView.bottom;
                 }
+
+
+                
             }
 
         }
+        //每次都保留最后图片底部的高度；就是scrolloview的高度；
+        _lastLabelBottom = label.bottom > _PreviousImageBottom ? label.bottom+70:_PreviousImageBottom + 70;
         
     }
     

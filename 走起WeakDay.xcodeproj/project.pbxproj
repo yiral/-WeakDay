@@ -17,6 +17,20 @@
 		7A2A2F1B1C3FBE40004EF082 /* GoogActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2A2F1A1C3FBE40004EF082 /* GoogActivityModel.m */; };
 		7A44FBE61C3D4E9A00A6B687 /* 头文档大点击事件 in Resources */ = {isa = PBXBuildFile; fileRef = 7A44FBE51C3D4E9A00A6B687 /* 头文档大点击事件 */; };
 		7A5BE76D1C3E10F7008CF120 /* ActivityScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5BE76C1C3E10F7008CF120 /* ActivityScrollView.m */; };
+		7A6100A51C449F0C00D8FFBB /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A6100A21C449F0C00D8FFBB /* ProgressHUD.bundle */; };
+		7A6100A61C449F0C00D8FFBB /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100A41C449F0C00D8FFBB /* ProgressHUD.m */; };
+		7A6100AA1C44FA6800D8FFBB /* DiscoverTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100A81C44FA6800D8FFBB /* DiscoverTableViewCell.m */; };
+		7A6100AB1C44FA6800D8FFBB /* DiscoverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6100A91C44FA6800D8FFBB /* DiscoverTableViewCell.xib */; };
+		7A6100EF1C45038A00D8FFBB /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100DF1C45038A00D8FFBB /* BaseModel.m */; };
+		7A6100F01C45038A00D8FFBB /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100E11C45038A00D8FFBB /* BaseTableViewCell.m */; };
+		7A6100F11C45038A00D8FFBB /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100E31C45038A00D8FFBB /* CategoryModel.m */; };
+		7A6100F21C45038A00D8FFBB /* CollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100E51C45038A00D8FFBB /* CollectModel.m */; };
+		7A6100F31C45038A00D8FFBB /* HorizonScrollTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100E71C45038A00D8FFBB /* HorizonScrollTableView.m */; };
+		7A6100F41C45038A00D8FFBB /* HorizontalScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100E91C45038A00D8FFBB /* HorizontalScrollCell.m */; };
+		7A6100F51C45038A00D8FFBB /* HorzonItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100EC1C45038A00D8FFBB /* HorzonItemCell.m */; };
+		7A6100F61C45038A00D8FFBB /* UIView+ViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100EE1C45038A00D8FFBB /* UIView+ViewConstraint.m */; };
+		7A6100F81C450F5400D8FFBB /* found.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A6100F71C450F5400D8FFBB /* found.plist */; };
+		7A6100FB1C450FC500D8FFBB /* diccoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A6100FA1C450FC500D8FFBB /* diccoverModel.m */; };
 		7A679A291C3F57E1009913CF /* MainProperty List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A679A281C3F57E1009913CF /* MainProperty List.plist */; };
 		7A7DD9EB1C3CBC44002E8B7B /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9EA1C3CBC44002E8B7B /* SelectCityViewController.m */; };
 		7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DD9ED1C3CBDA0002E8B7B /* SearchViewController.m */; };
@@ -76,6 +90,32 @@
 		7A44FBE51C3D4E9A00A6B687 /* 头文档大点击事件 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "头文档大点击事件"; sourceTree = "<group>"; };
 		7A5BE76B1C3E10F7008CF120 /* ActivityScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityScrollView.h; sourceTree = "<group>"; };
 		7A5BE76C1C3E10F7008CF120 /* ActivityScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityScrollView.m; sourceTree = "<group>"; };
+		7A6100A21C449F0C00D8FFBB /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7A6100A31C449F0C00D8FFBB /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7A6100A41C449F0C00D8FFBB /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		7A6100A71C44FA6800D8FFBB /* DiscoverTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewCell.h; sourceTree = "<group>"; };
+		7A6100A81C44FA6800D8FFBB /* DiscoverTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewCell.m; sourceTree = "<group>"; };
+		7A6100A91C44FA6800D8FFBB /* DiscoverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverTableViewCell.xib; sourceTree = "<group>"; };
+		7A6100DE1C45038A00D8FFBB /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		7A6100DF1C45038A00D8FFBB /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		7A6100E01C45038A00D8FFBB /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		7A6100E11C45038A00D8FFBB /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		7A6100E21C45038A00D8FFBB /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		7A6100E31C45038A00D8FFBB /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		7A6100E41C45038A00D8FFBB /* CollectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectModel.h; sourceTree = "<group>"; };
+		7A6100E51C45038A00D8FFBB /* CollectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectModel.m; sourceTree = "<group>"; };
+		7A6100E61C45038A00D8FFBB /* HorizonScrollTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizonScrollTableView.h; sourceTree = "<group>"; };
+		7A6100E71C45038A00D8FFBB /* HorizonScrollTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizonScrollTableView.m; sourceTree = "<group>"; };
+		7A6100E81C45038A00D8FFBB /* HorizontalScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollCell.h; sourceTree = "<group>"; };
+		7A6100E91C45038A00D8FFBB /* HorizontalScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollCell.m; sourceTree = "<group>"; };
+		7A6100EA1C45038A00D8FFBB /* HorizontalScrollCellDeleagte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollCellDeleagte.h; sourceTree = "<group>"; };
+		7A6100EB1C45038A00D8FFBB /* HorzonItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorzonItemCell.h; sourceTree = "<group>"; };
+		7A6100EC1C45038A00D8FFBB /* HorzonItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorzonItemCell.m; sourceTree = "<group>"; };
+		7A6100ED1C45038A00D8FFBB /* UIView+ViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewConstraint.h"; sourceTree = "<group>"; };
+		7A6100EE1C45038A00D8FFBB /* UIView+ViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewConstraint.m"; sourceTree = "<group>"; };
+		7A6100F71C450F5400D8FFBB /* found.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = found.plist; sourceTree = "<group>"; };
+		7A6100F91C450FC500D8FFBB /* diccoverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diccoverModel.h; sourceTree = "<group>"; };
+		7A6100FA1C450FC500D8FFBB /* diccoverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diccoverModel.m; sourceTree = "<group>"; };
 		7A679A281C3F57E1009913CF /* MainProperty List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MainProperty List.plist"; sourceTree = "<group>"; };
 		7A7DD9E71C3CAE39002E8B7B /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7A7DD9E81C3CB30B002E8B7B /* ZWDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWDefine.h; sourceTree = "<group>"; };
@@ -178,6 +218,40 @@
 			path = PullingRefreshTableView;
 			sourceTree = "<group>";
 		};
+		7A6100A11C449F0C00D8FFBB /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7A6100A21C449F0C00D8FFBB /* ProgressHUD.bundle */,
+				7A6100A31C449F0C00D8FFBB /* ProgressHUD.h */,
+				7A6100A41C449F0C00D8FFBB /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		7A6100DD1C45038A00D8FFBB /* HorizontalView */ = {
+			isa = PBXGroup;
+			children = (
+				7A6100DE1C45038A00D8FFBB /* BaseModel.h */,
+				7A6100DF1C45038A00D8FFBB /* BaseModel.m */,
+				7A6100E01C45038A00D8FFBB /* BaseTableViewCell.h */,
+				7A6100E11C45038A00D8FFBB /* BaseTableViewCell.m */,
+				7A6100E21C45038A00D8FFBB /* CategoryModel.h */,
+				7A6100E31C45038A00D8FFBB /* CategoryModel.m */,
+				7A6100E41C45038A00D8FFBB /* CollectModel.h */,
+				7A6100E51C45038A00D8FFBB /* CollectModel.m */,
+				7A6100E61C45038A00D8FFBB /* HorizonScrollTableView.h */,
+				7A6100E71C45038A00D8FFBB /* HorizonScrollTableView.m */,
+				7A6100E81C45038A00D8FFBB /* HorizontalScrollCell.h */,
+				7A6100E91C45038A00D8FFBB /* HorizontalScrollCell.m */,
+				7A6100EA1C45038A00D8FFBB /* HorizontalScrollCellDeleagte.h */,
+				7A6100EB1C45038A00D8FFBB /* HorzonItemCell.h */,
+				7A6100EC1C45038A00D8FFBB /* HorzonItemCell.m */,
+				7A6100ED1C45038A00D8FFBB /* UIView+ViewConstraint.h */,
+				7A6100EE1C45038A00D8FFBB /* UIView+ViewConstraint.m */,
+			);
+			path = HorizontalView;
+			sourceTree = "<group>";
+		};
 		7A7DD9E61C3CAE39002E8B7B /* pch */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +312,8 @@
 		7AF570731C3A5C2C004184E8 /* Libarary */ = {
 			isa = PBXGroup;
 			children = (
+				7A6100DD1C45038A00D8FFBB /* HorizontalView */,
+				7A6100A11C449F0C00D8FFBB /* ProgressHUD */,
 				7AF63D2B1C43913400734778 /* VOSegmentedControl */,
 				7A11DD391C3F9E8000D180E0 /* PullingRefreshTableView */,
 				7A7DD9E61C3CAE39002E8B7B /* pch */,
@@ -276,6 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				7AF570941C3A5D1E004184E8 /* Discover.storyboard */,
+				7A6100A71C44FA6800D8FFBB /* DiscoverTableViewCell.h */,
+				7A6100A81C44FA6800D8FFBB /* DiscoverTableViewCell.m */,
+				7A6100A91C44FA6800D8FFBB /* DiscoverTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -283,6 +362,9 @@
 		7AF570811C3A5CDE004184E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7A6100F71C450F5400D8FFBB /* found.plist */,
+				7A6100F91C450FC500D8FFBB /* diccoverModel.h */,
+				7A6100FA1C450FC500D8FFBB /* diccoverModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,12 +588,15 @@
 				7AF63D3E1C43A7F400734778 /* typeid23.plist in Resources */,
 				7AF14AB71C3B6B090083C73C /* btn_search.png in Resources */,
 				7AF63D281C43543200734778 /* hotTableViewCell.xib in Resources */,
+				7A6100F81C450F5400D8FFBB /* found.plist in Resources */,
 				7AF63D2A1C4355A300734778 /* hot.plist in Resources */,
 				7AF570991C3A5D8C004184E8 /* Mine.storyboard in Resources */,
 				7A44FBE61C3D4E9A00A6B687 /* 头文档大点击事件 in Resources */,
 				7AF14AB91C3B9D670083C73C /* city in Resources */,
 				7AF570951C3A5D1E004184E8 /* Discover.storyboard in Resources */,
+				7A6100A51C449F0C00D8FFBB /* ProgressHUD.bundle in Resources */,
 				7A2A2F181C3FB84C004EF082 /* good.plist in Resources */,
+				7A6100AB1C44FA6800D8FFBB /* DiscoverTableViewCell.xib in Resources */,
 				7AF570971C3A5D3F004184E8 /* Main.storyboard in Resources */,
 				7A679A291C3F57E1009913CF /* MainProperty List.plist in Resources */,
 				7AF63D3D1C43A7F400734778 /* typeid22.plist in Resources */,
@@ -574,16 +659,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2A2F1B1C3FBE40004EF082 /* GoogActivityModel.m in Sources */,
+				7A6100F51C45038A00D8FFBB /* HorzonItemCell.m in Sources */,
+				7A6100FB1C450FC500D8FFBB /* diccoverModel.m in Sources */,
+				7A6100F61C45038A00D8FFBB /* UIView+ViewConstraint.m in Sources */,
+				7A6100F11C45038A00D8FFBB /* CategoryModel.m in Sources */,
+				7A6100F41C45038A00D8FFBB /* HorizontalScrollCell.m in Sources */,
 				7AF63D351C43913400734778 /* VOIndicatorAnimation.m in Sources */,
 				7AE08AD41C3E5B10000CEA0B /* UIView+Extension.m in Sources */,
 				7AF63D341C43913400734778 /* VOContentLayer.m in Sources */,
 				7A11DD441C3FA3BC00D180E0 /* goodTableViewCell.m in Sources */,
 				7AF63D361C43913400734778 /* VOSegment.m in Sources */,
+				7A6100AA1C44FA6800D8FFBB /* DiscoverTableViewCell.m in Sources */,
+				7A6100F31C45038A00D8FFBB /* HorizonScrollTableView.m in Sources */,
 				7AF63D271C43543200734778 /* hotTableViewCell.m in Sources */,
 				7AE08AD11C3E4C6C000CEA0B /* HWTools.m in Sources */,
 				7A7DD9F71C3CBFE9002E8B7B /* ClassifyViewController.m in Sources */,
 				7AF570A91C3A7676004184E8 /* MainTableViewCell.m in Sources */,
 				7AF570481C3A1C3C004184E8 /* AppDelegate.m in Sources */,
+				7A6100F01C45038A00D8FFBB /* BaseTableViewCell.m in Sources */,
 				7AF570911C3A5CDE004184E8 /* DiscoverViewController.m in Sources */,
 				7A7DD9FD1C3CC098002E8B7B /* CodeActivityViewController.m in Sources */,
 				7AF63D371C43913400734778 /* VOSegmentedControl.m in Sources */,
@@ -593,7 +686,10 @@
 				7A7DD9EE1C3CBDA0002E8B7B /* SearchViewController.m in Sources */,
 				7AF570451C3A1C3C004184E8 /* main.m in Sources */,
 				7A7DD9F41C3CBF53002E8B7B /* ThemeViewController.m in Sources */,
+				7A6100EF1C45038A00D8FFBB /* BaseModel.m in Sources */,
+				7A6100F21C45038A00D8FFBB /* CollectModel.m in Sources */,
 				7A7DD9EB1C3CBC44002E8B7B /* SelectCityViewController.m in Sources */,
+				7A6100A61C449F0C00D8FFBB /* ProgressHUD.m in Sources */,
 				7AF570921C3A5CDE004184E8 /* MainViewController.m in Sources */,
 				7AE40E2A1C3F5EE400094E59 /* ThemeView.m in Sources */,
 				7ABAB10D1C3D207500788211 /* UIViewController+Comment.m in Sources */,

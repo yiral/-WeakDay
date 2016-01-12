@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lhi-kt-RbA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wYe-jw-FPw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3n-0C-8mO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088.5" y="325.5"/>
+            <point key="canvasLocation" x="865.5" y="334.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Og-Gh-h4K">
@@ -31,7 +31,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lsp-gg-Oo6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oci-h2-KUu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Oci-h2-KUu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -1,7 +1,7 @@
 //
 //  doodActivityViewController.m
 //  走起WeakDay
-//
+//  精选活动
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 刘海艳. All rights reserved.
 //

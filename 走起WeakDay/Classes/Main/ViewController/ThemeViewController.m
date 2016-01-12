@@ -1,7 +1,7 @@
 //
 //  ThemeViewController.m
 //  走起WeakDay
-// 活动专题
+//  推荐专题
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 刘海艳. All rights reserved.
 //

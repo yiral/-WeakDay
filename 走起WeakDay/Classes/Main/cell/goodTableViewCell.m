@@ -34,6 +34,8 @@
 -(void)setModel:(GoogActivityModel *)model{
     
     [self.goodImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:nil];
+    self.goodImageView.layer.cornerRadius = 20;
+    self.goodImageView.clipsToBounds = YES;
     
     self.goodAgeLable.text = model.age;
     self.goodPriceLable.text = model.price;

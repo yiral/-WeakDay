@@ -39,11 +39,18 @@ typedef NS_ENUM(NSInteger,classifyListType) {
 //分类列表接口
 #define classify @"http://e.kumi.cn/app/v1.3/catelist.php?_s_=78284130ab87a8396ec03073eac9c50a&_t_=1452495156&channelid=appstore&cityid=1&lat=34.61356398594803&limit=30&lng=112.4140434532402"
 
+//第二主页面，发现的接口；
+#define discovery @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
+
 
 
 //http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&cityid=1&id=821&lat=34.61349052974207&limit=30&lng=112.4139739846577&page=1
 
 
+
+#define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
+
+#define SeparatorColor RGB(228, 228, 228) //222 160 改成170
 
 
 #endif /* ZWDefine_h */

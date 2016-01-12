@@ -225,7 +225,7 @@
 //分类列表
 -(void)mainActivityButtonAction:(UIButton *)btn{
     ClassifyViewController *classifyr = [[ClassifyViewController alloc] init];
-    classifyr.classifyListType = btn.tag;
+    classifyr.classifyListType = btn.tag - 100;
     classifyr.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:classifyr animated:YES];
     
