@@ -57,7 +57,7 @@
     [self.tableView launchRefreshing];
     
 
-    [self Chooserquest];
+//    [self Chooserquest];
     
 
 }
@@ -183,7 +183,7 @@
     [sessionMangrr GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,_page,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         YiralLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //        YiralLog(@"%@",responseObject);
+//        YiralLog(@"%@",responseObject);
         
         [ProgressHUD showSuccess:@"OK"];
         NSDictionary *dict = responseObject;
@@ -300,12 +300,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         YiralLog(@"%@",error);
     }];
-//    //根据上一页的选择按钮，确定显示第几页数据；
-//    [self showPreviousSelectButton];
-    
-//    [self.tableView tableViewDidFinishedLoading];
-//    self.tableView.reachedTheEnd = NO;
-//    [self.tableView reloadData];
+
 }
 
 
@@ -365,7 +360,7 @@
 
 
 
-//匪类列表；
+//分类列表；
 
 
 #pragma mark-------------------lazyLoad
@@ -437,19 +432,10 @@
 }
 
 - (IBAction)segmentCtrlValuechange: (VOSegmentedControl *)segmentCtrl{
-//    NSLog(@"%@: value --> %@",@(segmentCtrl.tag), @(segmentCtrl.selectedSegmentIndex));
-    self.classifyListType = segmentCtrl.selectedSegmentIndex ;
+    self.classifyListType = segmentCtrl.selectedSegmentIndex +1;
     [self Chooserquest];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

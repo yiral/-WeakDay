@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //     Do any additional setup after loading the view.
-    self.title = @"发现";
+//    self.title = @"发现";
     //注册cell；
     [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverTableViewCell" bundle:nil] forCellReuseIdentifier:@"Discell"];
     

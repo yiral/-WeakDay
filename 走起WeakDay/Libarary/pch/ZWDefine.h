@@ -44,13 +44,19 @@ typedef NS_ENUM(NSInteger,classifyListType) {
 
 
 
-//http://e.kumi.cn/app/positioninfo.php?_s_=1b2f0563dade7abdfdb4b7caa5b36110&_t_=1452218405&channelid=appstore&cityid=1&id=821&lat=34.61349052974207&limit=30&lng=112.4139739846577&page=1
+
 
 
 
 #define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
 
 #define SeparatorColor RGB(228, 228, 228) //222 160 改成170
+
+//新浪微博分享；
+#define AppKey @"3959439932"
+#define AppSecret @"d0d079dc48483bced9fb7345c0d12f9a"
+#define kSecret @"default.htmlhttps://api.weibo.com/oauth2/default.html"
+#define kRedirectURL @"http://https://api.weibo.com/oauth2/"
 
 
 #endif /* ZWDefine_h */

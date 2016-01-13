@@ -45,6 +45,7 @@
         if ([status isEqualToString:@"success"] && code == 0) {
             NSDictionary *success = dic[@"success"];
             self.thmeView.dic = success;
+            self.navigationItem.title = success[@"title"];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 

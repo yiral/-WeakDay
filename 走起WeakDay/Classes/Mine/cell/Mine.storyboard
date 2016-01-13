@@ -14,8 +14,13 @@
                         <viewControllerLayoutGuide type="bottom" id="mb8-Fd-14A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JZl-tS-zHt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vET-mZ-tmk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="155"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.80016466310000001" blue="0.55263011510000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="我" id="4z2-06-Uk6"/>
@@ -23,7 +28,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbH-8E-MsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.5" y="362.5"/>
+            <point key="canvasLocation" x="1003.5" y="369.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kE0-SD-zRW">
@@ -31,9 +36,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yPL-Md-Sel" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="74l-Pc-Mc6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="74l-Pc-Mc6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.72549019609999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.37647058820000001" green="0.72549019609999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

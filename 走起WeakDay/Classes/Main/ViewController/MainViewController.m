@@ -69,7 +69,7 @@
     //注册cell；
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
-//    [self requestModel];
+    [self requestModel];
     [self startTimer];
 
 
@@ -467,16 +467,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+//-(void)viewWillAppear:(BOOL)animated{
+//    [self.view viewForFirstBaselineLayout];
+//    self.tabBarController.tabBar.hidden = NO;
+//}
 //-(void)viewWillDisappear:(BOOL)animated{
 //    [super viewWillDisappear:animated];
 //    self.tabBarController.tabBar.hidden = YES;
 //}
 
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    
-//}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+
+}
 /*
 #pragma mark - Navigation
 
