@@ -16,6 +16,9 @@
 #import "UIView+Extension.h"
 #import <UIKit/UIKit.h>
 
+#define NSLocalizedString(key, comment) \
+[[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height

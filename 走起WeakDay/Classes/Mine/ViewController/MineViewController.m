@@ -10,6 +10,14 @@
 #import <SDWebImage/SDImageCache.h>
 #import <MessageUI/MessageUI.h>
 #import "ProgressHUD.h"
+#import "WeiboSDK.h"
+#import "AppDelegate.h"
+#import "WBHttpRequest+WeiboShare.h"
+//#import "SendMessageToWXReq+requestWithTextOrMediaMessage.h"
+#import "WXApiObject.h"
+#import "WXApi.h"
+
+//#import "ShareView.h"
 
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate>
@@ -19,7 +27,13 @@
 @property(nonatomic, strong) NSArray *imageArray;
 @property(nonatomic, strong) NSMutableArray *titleArray;
 @property(nonatomic, strong) UILabel *nameLable;
+@property (nonatomic, strong) UISwitch *textSwitch;
+@property (nonatomic, strong) UISwitch *imageSwitch;
+@property (nonatomic, strong) UISwitch *mediaSwitch;
+@property (nonatomic, strong) UIView *shareView;
+@property(nonatomic, strong) UIView *blackView;
 
+//@property(nonatomic, strong) WBMessageObject *messageToshare;
 
 @end
 
@@ -62,13 +76,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         
     }
-//    if (indexPath.row == 0) {
-//        
-//        [self.titleArray insertObject:cachstr atIndex:0];
-//        cell.detailTextLabel.text = cachstr;
-//        NSLog(@"%lu",catchSize);
-//    }
-
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     for (int i = 0; i < 5; i ++) {
@@ -94,12 +101,8 @@
     switch (indexPath.row) {
         case 0:{
             //清除；里面的图片；
-            NSLog(@"%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
-            SDImageCache *cache = [SDImageCache sharedImageCache];
-            [cache clearDisk];
-            [self.titleArray replaceObjectAtIndex:0 withObject:@"清除缓存"];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];  
+            [ProgressHUD show:@"正在为您清理。。。"];
+            [self clearImage];
         }
             
             break;
@@ -113,7 +116,6 @@
         {
             //appsture 评分
             NSString *str = [NSString stringWithFormat:
-                             
                              @"itms-apps://itunes.apple.com/app"];
             
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
@@ -136,6 +138,169 @@
     }
     
     
+}
+-(void)share{
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    
+    self.blackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    self.blackView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    [window addSubview:self.blackView];
+    
+    
+    self.shareView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight)];
+    _shareView.backgroundColor = [UIColor cyanColor];
+    [window addSubview:_shareView];
+    
+    //微博
+    UIButton *weiboButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    weiboButton.frame = CGRectMake(10, 10, 70, 70);
+    [weiboButton addTarget:self action:@selector(shareWeiBo) forControlEvents:UIControlEventTouchUpInside];
+    
+    [weiboButton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_login_button_with_frame_logo_focused"] forState:UIControlStateNormal];
+    UILabel *weibo = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 70, 40)];
+    weibo.text = @"微博分享";
+    weibo.textColor = [UIColor whiteColor];
+    weibo.textAlignment = NSTextAlignmentCenter;
+    [self.shareView addSubview:weibo];
+    
+    [_shareView addSubview:weiboButton];
+    
+    //circle;
+    UIButton *circleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    circleButton.frame = CGRectMake(140, 10, 70, 70);
+    [circleButton setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
+    [circleButton addTarget:self action:@selector(shareCircle) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *circle = [[UILabel alloc] initWithFrame:CGRectMake(130, 60, 90, 40)];
+    circle.text = @"朋友圈分享";
+    circle.textColor = [UIColor whiteColor];
+    circle.textAlignment = NSTextAlignmentCenter;
+    [self.shareView addSubview:circle];
+
+    [_shareView addSubview:circleButton];
+    
+    //微信；
+    UIButton *friendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    friendButton.frame = CGRectMake(260, 10, 70, 70);
+    [friendButton setImage:[UIImage imageNamed:@"wx_normal"] forState:UIControlStateNormal];
+    [friendButton addTarget:self action:@selector(shareFriend) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *weixin = [[UILabel alloc] initWithFrame:CGRectMake(260, 60, 70, 40)];
+    weixin.text = @"微信分享";
+    weixin.textColor = [UIColor whiteColor];
+    weixin.textAlignment = NSTextAlignmentCenter;
+    [self.shareView addSubview:weixin];
+
+    [_shareView addSubview:friendButton];
+    
+    
+    
+    //remove;
+    UIButton *removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    removeButton.frame = CGRectMake(20, 115, kScreenWidth - 40, 35);
+    removeButton.backgroundColor = [UIColor redColor];
+    [removeButton setTitle:@"取消" forState:UIControlStateNormal];
+    [removeButton addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];
+    [_shareView addSubview:removeButton];
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.blackView.alpha  = 0.6;
+        self.shareView.frame = CGRectMake(0, kScreenHeight - 165, kScreenWidth, 165);
+    }];
+    
+}
+
+#pragma mark-------------------share分享
+//-(void)shareWeiBo{
+//    
+//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+//    request.redirectURI = kRedirectURI;
+//    request.scope = @"all";
+//    
+//    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+//                         @"Other_Info_1": [NSNumber numberWithInt:123],
+//                         @"Other_Info_2": @[@"obj1", @"obj2"],
+//                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+//    
+//    [WeiboSDK sendRequest:request];
+//    [self remove];
+//}
+
+-(void)shareWeiBo{
+    
+    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    
+    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+    authRequest.redirectURI = kRedirectURI;
+    authRequest.scope = @"all";
+    
+    
+    WBSendMessageToWeiboRequest *request=[WBSendMessageToWeiboRequest requestWithMessage:[self messageToshare] authInfo:authRequest access_token:myDelegate.wbtoken];
+    
+    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+                         @"Other_Info_1": [NSNumber numberWithInt:123],
+                         @"Other_Info_2": @[@"obj1", @"obj2"],
+                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+    //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
+    [WeiboSDK sendRequest:request];
+    [self quxiao];
+}
+- (void)quxiao{
+    [self.shareView removeFromSuperview];
+    [self.blackView removeFromSuperview];
+}
+
+
+
+- (WBMessageObject *)messageToshare
+{
+    WBMessageObject *message = [WBMessageObject message];
+    message.text = @"测试使用";
+    return message;
+}
+
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    NSLog(@"45454545");
+}
+
+
+-(void)shareCircle{
+    
+    
+    
+}
+-(void)shareFriend{
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.text = @"周末去哪嗨？和我一起下载“嘻嘻乐周末”吧，这是一款集 旅游，美食，亲子活动为一体的软件，让你的周末大声嗨起来!!!嘿嘿嘿嘿嘿嘿🌺";
+    req.bText = YES;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
+
+    
+    
+}
+
+-(void)remove{
+        [UIView animateWithDuration:1.0 animations:^{
+            [self.shareView removeFromSuperview];
+            [self.blackView removeFromSuperview];
+            
+        }];
+   
+    
+}
+
+
+
+-(void)clearImage{
+    [ProgressHUD showSuccess:@"已完成"];
+    NSLog(@"%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
+    SDImageCache *cache = [SDImageCache sharedImageCache];
+    [cache clearDisk];
+    [self.titleArray replaceObjectAtIndex:0 withObject:@"清除缓存"];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(void)sendEmail{
@@ -167,46 +332,12 @@
 }
 
 
--(void)share{
-    
-    
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    UIView *shareView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 200, kScreenWidth, 200)];
-    shareView.backgroundColor = [UIColor cyanColor];
-    [window addSubview:shareView];
-    
-    //微博
-    UIButton *weiboButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    weiboButton.frame = CGRectMake(20, 40, 35, 35);
-    [weiboButton setImage:[UIImage imageNamed:@"ic_com_sina_weibo_sdk_login_button_with_frame_logo_focused"] forState:UIControlStateNormal];
-    [shareView addSubview:weiboButton];
-    
-    //circle;
-    UIButton *circleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    circleButton.frame = CGRectMake(100, 40, 35, 35);
-    [circleButton setImage:[UIImage imageNamed:@"py_normal"] forState:UIControlStateNormal];
-    [shareView addSubview:circleButton];
-    
-    //微信；
-    UIButton *friendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    friendButton.frame = CGRectMake(150, 40, 35, 35);
-    [friendButton setImage:[UIImage imageNamed:@"wx_normal"] forState:UIControlStateNormal];
-    [shareView addSubview:friendButton];
-    
-    
-    //remove;
-    UIButton *removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeButton.frame = CGRectMake(200, 100, 80, 40);
-    [removeButton setTitle:@"取消" forState:UIControlStateNormal];
-    [shareView addSubview:removeButton];
-
-    
-    
-    
-}
 -(void)checkApp{
     [ProgressHUD showSuccess:@"已是最新版本"];
 }
+
+
+
 //邮件发送成功
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     switch (result) {
@@ -277,7 +408,7 @@
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64 - 44) style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
-
+        self.tableView.tableFooterView = [[UIView alloc]init];
     }
     return _tableView;
 }

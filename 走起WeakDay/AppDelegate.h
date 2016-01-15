@@ -10,8 +10,13 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+//{
+//    NSString* wbtoken;
+//    NSString* wbCurrentUserID;
+//}
 
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *wbtoken;
 @property(nonatomic, strong) UITabBarController *tablebar;
 
 

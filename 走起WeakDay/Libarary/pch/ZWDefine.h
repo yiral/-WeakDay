@@ -42,21 +42,23 @@ typedef NS_ENUM(NSInteger,classifyListType) {
 //第二主页面，发现的接口；
 #define discovery @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
 
-
-
-
-
-
-
 #define RGB(x,y,z) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:1.0]
 
 #define SeparatorColor RGB(228, 228, 228) //222 160 改成170
 
 //新浪微博分享；
 #define AppKey @"3959439932"
-#define AppSecret @"d0d079dc48483bced9fb7345c0d12f9a"
-#define kSecret @"default.htmlhttps://api.weibo.com/oauth2/default.html"
-#define kRedirectURL @"http://https://api.weibo.com/oauth2/"
 
+#define AppSecret @"d0d079dc48483bced9fb7345c0d12f9a"
+
+//#define kSecret @"http://https://api.weibo.com/oauth2/default.html"
+
+#define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
+
+
+//微信分享；
+#define kWeiXinAppId @"wxbe67a52b21099443"
+
+#define kWeiXinAppSerect @"3890ba8944c04aad45e2bede75db0a7b"
 
 #endif /* ZWDefine_h */

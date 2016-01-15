@@ -27,7 +27,7 @@
 			<string>com.weibo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>3959439932</string>
+				<string>wb3959439932</string>
 			</array>
 		</dict>
 	</array>
@@ -37,11 +37,22 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>New item</key>
+			<string>weibo.com</string>
+			<key>New item - 2</key>
+			<string>weibo.cn</string>
+			<key>New item - 3</key>
+			<string>sina.com.cn</string>
+			<key>New item - 4</key>
+			<string>qq.com</string>
+		</dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>launchScrean</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

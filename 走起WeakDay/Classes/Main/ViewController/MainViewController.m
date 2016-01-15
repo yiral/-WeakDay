@@ -69,6 +69,7 @@
     //注册cell；
     [self.tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     [self configTableViewHeadView];
+    
     [self requestModel];
     [self startTimer];
 

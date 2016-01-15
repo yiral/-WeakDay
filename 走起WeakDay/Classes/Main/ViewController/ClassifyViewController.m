@@ -169,23 +169,21 @@
 //        [ProgressHUD dismiss];
     }];
    
-    
-//    [self.tableView tableViewDidFinishedLoading];
-//    self.tableView.reachedTheEnd = NO;
-//    [self.tableView reloadData];
-
-}
+   }
 -(void)getTouristRequest{
+    
+    
     AFHTTPSessionManager *sessionMangrr = [[AFHTTPSessionManager alloc] init];
     sessionMangrr.responseSerializer.acceptableContentTypes = [NSSet setWithObject: @"text/html"];
     [ProgressHUD show:@"拼命加载中..."];
-    //typeid = 23，景点场景；
+    
+    //typeid = 6,演出剧目
     [sessionMangrr GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,_page,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        YiralLog(@"%@",downloadProgress);
+        //        YiralLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        YiralLog(@"%@",responseObject);
-        
+        //                YiralLog(@"%@",responseObject);
         [ProgressHUD showSuccess:@"OK"];
+        //        [ProgressHUD dismiss];
         NSDictionary *dict = responseObject;
         NSString *status = dict[@"status"];
         NSInteger code = [dict[@"code"] integerValue];
@@ -193,13 +191,14 @@
             NSDictionary *dictSucce = dict[@"success"];
             NSArray *acArray = dictSucce[@"acData"];
             if (self.refreshing) {
-                if (self.touristArray.count > 0) {
-                    [self.touristArray removeAllObjects];
+                if (self.showArray.count > 0) {
+                    [self.showArray removeAllObjects];
                 }
             }
+            
             for (NSDictionary *dic in acArray) {
                 GoogActivityModel *model = [[GoogActivityModel alloc] initWithDictionary:dic];
-                [self.touristArray addObject:model];
+                [self.showArray addObject:model];
             }
             
         }else{
@@ -207,17 +206,12 @@
         }
         //根据上一页的选择按钮，确定显示第几页数据；
         [self showPreviousSelectButton];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        YiralLog(@"%@",error);
+        //        YiralLog(@"%@",error);
+        [ProgressHUD showError:[NSString stringWithFormat:@"%@", error]];
+        //        [ProgressHUD dismiss];
     }];
-    
-    
-//    [self.tableView tableViewDidFinishedLoading];
-//    self.tableView.reachedTheEnd = NO;
-//    [self.tableView reloadData];
 
-    
 }
 -(void)getStudyRequest{
     AFHTTPSessionManager *sessionMangrr = [[AFHTTPSessionManager alloc] init];
@@ -257,11 +251,6 @@
         YiralLog(@"%@",error);
     }];
     
-    
-//    [self.tableView tableViewDidFinishedLoading];
-//    self.tableView.reachedTheEnd = NO;
-//    [self.tableView reloadData];
-    
 }
 -(void)getFamilyRequest{
     AFHTTPSessionManager *sessionMangrr = [[AFHTTPSessionManager alloc] init];
@@ -269,7 +258,7 @@
     [ProgressHUD show:@"拼命加载中..."];
     //typeid = 21，
     [sessionMangrr GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",classify,_page,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        YiralLog(@"%@",downloadProgress);
+//        YiralLog(@"%@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [ProgressHUD showSuccess:@"OK"];
@@ -326,10 +315,7 @@
     self.tableView.reachedTheEnd = NO;
     [self.tableView reloadData];
 
-    
 }
-
-
 -(void)showPreviousSelectButton{
     if (self.refreshing) {//下拉删除原来的数据；
         if (self.showDataArray.count > 0) {
@@ -392,7 +378,7 @@
 
 -(PullingRefreshTableView *)tableView{
     if (_tableView == nil) {
-        self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-104) pullingDelegate:self];
+        self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(0, 40, kScreenWidth, kScreenHeight-104) pullingDelegate:self];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.rowHeight = 100;
