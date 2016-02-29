@@ -159,7 +159,9 @@
 //选择城市；
 -(void)selectorCityAction:(UIBarButtonItem *)bar{
     SelectCityViewController *selects = [[SelectCityViewController alloc]init];
-    [self.navigationController presentViewController:selects animated:YES completion:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:selects];
+    
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 //搜索

@@ -16,7 +16,7 @@
 //#import "SendMessageToWXReq+requestWithTextOrMediaMessage.h"
 #import "WXApiObject.h"
 #import "WXApi.h"
-
+#import "LoginViewController.h"
 //#import "ShareView.h"
 
 
@@ -210,20 +210,6 @@
 }
 
 #pragma mark-------------------share分享
-//-(void)shareWeiBo{
-//    
-//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-//    request.redirectURI = kRedirectURI;
-//    request.scope = @"all";
-//    
-//    request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
-//                         @"Other_Info_1": [NSNumber numberWithInt:123],
-//                         @"Other_Info_2": @[@"obj1", @"obj2"],
-//                         @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
-//    
-//    [WeiboSDK sendRequest:request];
-//    [self remove];
-//}
 
 -(void)shareWeiBo{
     
@@ -245,11 +231,11 @@
     [WeiboSDK sendRequest:request];
     [self quxiao];
 }
+
 - (void)quxiao{
     [self.shareView removeFromSuperview];
     [self.blackView removeFromSuperview];
 }
-
 
 
 - (WBMessageObject *)messageToshare
@@ -358,10 +344,8 @@
         default:
             break;
     }
-    
-    
-    
 }
+
 
 -(void)setUpTableViewHeadView{
     UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 210)];
@@ -386,6 +370,7 @@
     return _nameLable;
 }
 
+
 -(UIButton *)headImageViewbutton{
     if (_headImageViewbutton == nil) {
         self.headImageViewbutton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -399,7 +384,13 @@
     }
          return _headImageViewbutton;
 }
+
+
 -(void)login{
+    UIStoryboard *storboard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+    UINavigationController *nav = [storboard instantiateViewControllerWithIdentifier:@"LoginID"];
+    [self.navigationController pushViewController:nav animated:NO];
+    
     
 }
 
@@ -412,6 +403,7 @@
     }
     return _tableView;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    

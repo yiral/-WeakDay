@@ -17,7 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"切换城市";
+    self.view.backgroundColor = [UIColor cyanColor];
+    [self showBackButton];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:96/255.0 green:185/255.0 blue:191/255.0 alpha:1.0];
+    
 }
+
+-(void)backButtonAction:(UIButton *)button{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -2,6 +2,7 @@
 //  AppDelegate.m
 //  走起WeakDay
 //
+//  定位
 //  Created by scjy on 16/1/4.
 //  Copyright © 2016年 刘海艳. All rights reserved.
 //
@@ -9,9 +10,22 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "WeiboSDK.h"
+#import <BmobSDK/Bmob.h>
+//1.引入头文件
+#import <CoreLocation/CoreLocation.h>
 
 //#import "SendMessageToWeiboViewController.h"
-@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
+
+//设置定位代理；
+@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate,CLLocationManagerDelegate>
+//添加全局变量；
+{
+    //2.定位；
+    CLLocationManager *_locationManager;
+    //创建地理编码对象；
+    CLGeocoder *_geocoder;
+    
+}
 
 
 
@@ -22,9 +36,37 @@
 @synthesize wbtoken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //3.初始化对象；
+    _locationManager = [[CLLocationManager alloc] init];
+    //4.判断是否打开定位；
+    if (![CLLocationManager locationServicesEnabled]) {
+        YiralLog(@"用户服务不可用。");
+    }
+    //如果没有授权，则请求用户授权；
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        [_locationManager requestWhenInUseAuthorization];
+        
+    }else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse){
+        //设置代理；
+        _locationManager.delegate = self;
+        //设置精度；定位精度越高越耗电；
+        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        //设置频度，没隔多少米定位一次；
+        CLLocationDistance distance = 10.0;
+        _locationManager.distanceFilter = distance;
+        //启用定位服务；
+        [_locationManager startUpdatingLocation];
+    }
+    
+    //初始化地理编码对象；
+    _geocoder =[[CLGeocoder alloc] init];
     
     [WeiboSDK enableDebugMode:YES];
+    
     [WeiboSDK registerApp:AppKey];
+    
+    [Bmob registerWithAppKey:kBmobAppKey];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -173,6 +215,38 @@
 //    return [WeiboSDK handleOpenURL:url delegate:self];
 //}
 
+
+
+#pragma mark--------------定位代理
+/*
+ 定位协议代理方法：
+ manager：当前使用的定位对象；
+ locations：返回定位数据，是一个数据对象，里面是CLLocation类型；
+ 
+ */
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    YiralLog(@"%@",locations);
+    //从数组中取出一个定位信息；
+    CLLocation *location = [locations lastObject];
+    //从CLlocation中取出坐标；
+    //CLLocationCoordinate2D:经纬度，表示坐标系；
+    
+    CLLocationCoordinate2D coordinate = location.coordinate;
+    YiralLog(@"纬度:%f,精度:%f,海拔：%f,行走速度：%f",coordinate.latitude,coordinate.longitude,location.altitude,location.speed);
+    
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *placemark = [placemarks firstObject];
+        NSString *city = placemark.addressDictionary[@"City"];
+        YiralLog(@"%@",placemark.addressDictionary);
+    }];
+    
+    
+    //如果不需要定位服务的时候，即时关闭定位服务；
+    [_locationManager stopUpdatingLocation];
+    
+    
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
